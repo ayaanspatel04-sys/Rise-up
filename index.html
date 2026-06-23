@@ -885,14 +885,14 @@ footer ul a:hover{color:var(--gold)}
 
 <script>
 function showTopic(section, topic, btn) {
-  // hide all panels in section
-  document.querySelectorAll(`#${section} .topic-panel`).forEach(p => p.classList.remove('active'));
-  // deactivate all tabs in section
+  // hide all panels whose id starts with this section prefix
+  document.querySelectorAll(`.topic-panel[id^="${section}-"]`).forEach(p => p.classList.remove('active'));
+  // deactivate all tabs in the same tab bar
   if (btn) {
     btn.closest('.topic-tabs').querySelectorAll('.topic-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
   }
-  // show selected panel
+  // show the selected panel
   const panel = document.getElementById(`${section}-${topic}`);
   if (panel) panel.classList.add('active');
 }
