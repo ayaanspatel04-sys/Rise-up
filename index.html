@@ -178,6 +178,46 @@ footer ul a{color:rgba(255,255,255,0.38);text-decoration:none;font-size:0.875rem
 footer ul a:hover{color:var(--gold)}
 .footer-bottom{background:#060F19;border-top:1px solid rgba(255,255,255,0.07);padding:1.25rem 5%;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:rgba(255,255,255,0.22)}
 
+/* CALENDAR SECTION */
+#calendar-section{background:var(--navy);padding:6rem 5%}
+#calendar-section .section-h{color:#fff}
+#calendar-section .section-p{color:rgba(255,255,255,0.6)}
+.sat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem}
+.sat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.5rem;text-align:center;transition:all 0.2s}
+.sat-card:hover{background:rgba(255,255,255,0.09);transform:translateY(-2px)}
+.sat-card.full{opacity:0.45;pointer-events:none}
+.sat-month{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:0.4rem}
+.sat-day{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1}
+.sat-weekday{font-size:0.78rem;color:rgba(255,255,255,0.4);margin-top:0.2rem;margin-bottom:1rem}
+.sat-time{font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:0.5rem}
+.sat-spots{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:1.1rem}
+.sat-spots.low{color:#f97316}
+.sat-spots.none{color:#ef4444}
+.sat-btn{width:100%;padding:0.6rem;border-radius:5px;background:var(--gold);color:var(--navy);border:none;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.sat-btn:hover{background:var(--gold-lt)}
+.sat-btn.full-btn{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.3);cursor:not-allowed}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:200;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;background:var(--gray);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+.modal-close:hover{background:#ddd}
+.modal-badge{display:inline-block;background:rgba(201,147,58,0.12);color:var(--gold);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:20px;margin-bottom:1rem}
+.modal h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy);margin-bottom:0.4rem}
+.modal .modal-date{font-size:0.88rem;color:var(--muted);margin-bottom:1.75rem}
+.modal .fg{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:0.9rem}
+.modal .fg label{font-size:0.8rem;font-weight:600;color:var(--navy)}
+.modal .fg input,.modal .fg textarea{padding:0.7rem 1rem;border:1.5px solid #D4D9E0;border-radius:6px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--text);outline:none;transition:border-color 0.2s;width:100%}
+.modal .fg input:focus,.modal .fg textarea:focus{border-color:var(--gold)}
+.modal .fg textarea{resize:vertical;min-height:110px}
+.modal .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.word-count{font-size:0.75rem;color:var(--muted);text-align:right;margin-top:0.25rem}
+.word-count.over{color:#ef4444}
+.modal-submit{width:100%;padding:0.9rem;border-radius:5px;background:var(--gold);color:var(--navy);border:none;font-size:0.92rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;margin-top:0.5rem}
+.modal-submit:hover{background:var(--gold-lt)}
+.modal-note{font-size:0.78rem;color:var(--muted);text-align:center;margin-top:0.75rem;line-height:1.5}
+
 /* FADE IN */
 .fade-in{opacity:0;transform:translateY(22px);transition:opacity 0.6s,transform 0.6s}
 .fade-in.visible{opacity:1;transform:translateY(0)}
@@ -192,6 +232,7 @@ footer ul a:hover{color:var(--gold)}
   .nav-hamburger{display:flex}
   .stats-bar{gap:2rem}
   .steps-inline{grid-template-columns:1fr}
+  .sat-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:700px){
   footer{grid-template-columns:1fr}
@@ -199,6 +240,8 @@ footer ul a:hover{color:var(--gold)}
   .footer-bottom{flex-direction:column;gap:0.5rem;text-align:center}
   .hero h1{font-size:2rem}
   .form-row{grid-template-columns:1fr}
+  .sat-grid{grid-template-columns:1fr}
+  .modal .form-row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -211,6 +254,7 @@ footer ul a:hover{color:var(--gold)}
   <ul class="nav-links">
     <li><a href="#financial">Financial Literacy</a></li>
     <li><a href="#reentry">Reentry Resources</a></li>
+    <li><a href="#calendar-section">Calendar</a></li>
     <li><a href="#about">About Us</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -219,10 +263,11 @@ footer ul a:hover{color:var(--gold)}
   </div>
 </nav>
 <div class="mobile-menu" id="mmenu">
-  <a href="#financial" onclick="this.closest('.mobile-menu').classList.remove('open')">Financial Literacy</a>
-  <a href="#reentry"   onclick="this.closest('.mobile-menu').classList.remove('open')">Reentry Resources</a>
-  <a href="#about"     onclick="this.closest('.mobile-menu').classList.remove('open')">About Us</a>
-  <a href="#contact"   onclick="this.closest('.mobile-menu').classList.remove('open')">Contact</a>
+  <a href="#financial"        onclick="this.closest('.mobile-menu').classList.remove('open')">Financial Literacy</a>
+  <a href="#reentry"          onclick="this.closest('.mobile-menu').classList.remove('open')">Reentry Resources</a>
+  <a href="#calendar-section" onclick="this.closest('.mobile-menu').classList.remove('open')">Calendar</a>
+  <a href="#about"            onclick="this.closest('.mobile-menu').classList.remove('open')">About Us</a>
+  <a href="#contact"          onclick="this.closest('.mobile-menu').classList.remove('open')">Contact</a>
 </div>
 
 <!-- HERO -->
@@ -784,6 +829,37 @@ footer ul a:hover{color:var(--gold)}
   </div>
 </section>
 
+<!-- CALENDAR -->
+<section id="calendar-section">
+  <p class="label light">Weekly Sessions</p>
+  <h2 class="section-h">Saturday Sessions — Every Week at 12:00 PM</h2>
+  <p class="section-p">Join a live session with our team every Saturday at noon. Sessions are limited to <strong style="color:var(--gold-lt)">10 people</strong> to keep things personal and focused. Reserve your spot below.</p>
+  <div class="sat-grid" id="satGrid"></div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open')">✕</button>
+    <div class="modal-badge">Saturday Session</div>
+    <h2>Reserve Your Spot</h2>
+    <p class="modal-date" id="modalDateLine">Saturday — 12:00 PM EST</p>
+    <div class="form-row">
+      <div class="fg"><label>First Name *</label><input id="mfname" type="text" placeholder="First name"></div>
+      <div class="fg"><label>Last Name *</label><input id="mlname" type="text" placeholder="Last name"></div>
+    </div>
+    <div class="fg"><label>Date of Birth *</label><input id="mdob" type="date"></div>
+    <div class="fg"><label>Street Address *</label><input id="maddr" type="text" placeholder="123 Main St, City, State, ZIP"></div>
+    <div class="fg">
+      <label>Tell us about your financial situation * <span style="font-weight:400;color:var(--muted)">(max 100 words)</span></label>
+      <textarea id="mremarks" placeholder="Share what financial challenges you're currently facing and what you hope to get out of this session..." oninput="updateWordCount()"></textarea>
+      <div class="word-count" id="wordCount">0 / 100 words</div>
+    </div>
+    <button class="modal-submit" onclick="submitRegistration()">Reserve My Spot →</button>
+    <p class="modal-note">🔒 Your information is completely confidential and will only be used to prepare for your session.</p>
+  </div>
+</div>
+
 <!-- ABOUT -->
 <section id="about">
   <p class="label light">About RiseUp Community</p>
@@ -895,6 +971,132 @@ footer ul a:hover{color:var(--gold)}
 </div>
 
 <script>
+// ── CALENDAR ──
+const MAX_SPOTS = 10;
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const SHORT_MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function getRegistrations(dateKey) {
+  return parseInt(localStorage.getItem('reg_' + dateKey) || '0');
+}
+function addRegistration(dateKey) {
+  const current = getRegistrations(dateKey);
+  localStorage.setItem('reg_' + dateKey, current + 1);
+}
+
+function getUpcomingSaturdays(count) {
+  const saturdays = [];
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  let d = new Date(today);
+  // find next Saturday
+  const dayOfWeek = d.getDay();
+  const daysUntilSat = (6 - dayOfWeek + 7) % 7 || 7;
+  d.setDate(d.getDate() + daysUntilSat);
+  for (let i = 0; i < count; i++) {
+    saturdays.push(new Date(d));
+    d.setDate(d.getDate() + 7);
+  }
+  return saturdays;
+}
+
+function renderCalendar() {
+  const grid = document.getElementById('satGrid');
+  if (!grid) return;
+  const saturdays = getUpcomingSaturdays(8);
+  grid.innerHTML = '';
+  saturdays.forEach(sat => {
+    const key = sat.toISOString().split('T')[0];
+    const taken = getRegistrations(key);
+    const remaining = MAX_SPOTS - taken;
+    const isFull = remaining <= 0;
+    const dateStr = `${SHORT_MONTHS[sat.getMonth()]} ${sat.getDate()}, ${sat.getFullYear()}`;
+    let spotsLabel = `${remaining} of ${MAX_SPOTS} spots remaining`;
+    let spotsClass = '';
+    if (isFull) { spotsLabel = 'Session Full'; spotsClass = 'none'; }
+    else if (remaining <= 3) spotsClass = 'low';
+
+    const card = document.createElement('div');
+    card.className = 'sat-card' + (isFull ? ' full' : '');
+    card.innerHTML = `
+      <div class="sat-month">${MONTHS[sat.getMonth()]} ${sat.getFullYear()}</div>
+      <div class="sat-day">${sat.getDate()}</div>
+      <div class="sat-weekday">Saturday</div>
+      <div class="sat-time">🕛 12:00 PM EST</div>
+      <div class="sat-spots ${spotsClass}">${spotsLabel}</div>
+      <button class="sat-btn ${isFull ? 'full-btn' : ''}" onclick="openModal('${key}','${dateStr}')">${isFull ? 'Session Full' : 'Reserve My Spot'}</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+let currentDateKey = '';
+function openModal(dateKey, dateStr) {
+  currentDateKey = dateKey;
+  document.getElementById('modalDateLine').textContent = `Saturday, ${dateStr} — 12:00 PM EST`;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // clear form
+  ['mfname','mlname','mdob','maddr','mremarks'].forEach(id => document.getElementById(id).value = '');
+  updateWordCount();
+}
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+function updateWordCount() {
+  const text = document.getElementById('mremarks').value.trim();
+  const words = text === '' ? 0 : text.split(/\s+/).length;
+  const el = document.getElementById('wordCount');
+  el.textContent = `${words} / 100 words`;
+  el.className = 'word-count' + (words > 100 ? ' over' : '');
+}
+
+function submitRegistration() {
+  const fname   = document.getElementById('mfname').value.trim();
+  const lname   = document.getElementById('mlname').value.trim();
+  const dob     = document.getElementById('mdob').value;
+  const addr    = document.getElementById('maddr').value.trim();
+  const remarks = document.getElementById('mremarks').value.trim();
+  const words   = remarks === '' ? 0 : remarks.split(/\s+/).length;
+
+  if (!fname)          { alert('Please enter your first name.'); return; }
+  if (!lname)          { alert('Please enter your last name.'); return; }
+  if (!dob)            { alert('Please enter your date of birth.'); return; }
+  if (!addr)           { alert('Please enter your address.'); return; }
+  if (!remarks)        { alert('Please fill in the remarks section.'); return; }
+  if (words > 100)     { alert('Please keep your remarks under 100 words.'); return; }
+
+  const remaining = MAX_SPOTS - getRegistrations(currentDateKey);
+  if (remaining <= 0)  { alert('Sorry, this session is now full.'); return; }
+
+  // record registration
+  addRegistration(currentDateKey);
+
+  // send via mailto
+  const subject = encodeURIComponent(`Session Registration — ${currentDateKey}`);
+  const body = encodeURIComponent(
+    `New Session Registration\n\nDate: ${currentDateKey} at 12:00 PM EST\n\nFirst Name: ${fname}\nLast Name: ${lname}\nDate of Birth: ${dob}\nAddress: ${addr}\n\nFinancial Situation:\n${remarks}`
+  );
+  window.location.href = `mailto:ayaanspatel04@gmail.com?subject=${subject}&body=${body}`;
+
+  // close modal and refresh calendar
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  renderCalendar();
+
+  const t = document.getElementById('toast');
+  t.textContent = '✅ You\'re registered! Check your email — a confirmation is being sent.';
+  t.style.display = 'block';
+  setTimeout(() => { t.style.display = 'none'; t.textContent = '✅ Message sent! We\'ll be in touch soon.'; }, 6000);
+}
+
+renderCalendar();
+
+// ── TOPICS ──
 function showTopic(section, topic, btn) {
   // hide all panels whose id starts with this section prefix
   document.querySelectorAll(`.topic-panel[id^="${section}-"]`).forEach(p => p.classList.remove('active'));
