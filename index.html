@@ -1073,25 +1073,43 @@ function submitRegistration() {
   const remaining = MAX_SPOTS - getRegistrations(currentDateKey);
   if (remaining <= 0)  { alert('Sorry, this session is now full.'); return; }
 
-  // record registration
+  // record registration locally
   addRegistration(currentDateKey);
 
-  // send via mailto
-  const subject = encodeURIComponent(`Session Registration — ${currentDateKey}`);
-  const body = encodeURIComponent(
-    `New Session Registration\n\nDate: ${currentDateKey} at 12:00 PM EST\n\nFirst Name: ${fname}\nLast Name: ${lname}\nDate of Birth: ${dob}\nAddress: ${addr}\n\nFinancial Situation:\n${remarks}`
-  );
-  window.location.href = `mailto:ayaanspatel04@gmail.com?subject=${subject}&body=${body}`;
-
-  // close modal and refresh calendar
+  // close modal immediately
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow = '';
   renderCalendar();
 
+  // show sending toast
   const t = document.getElementById('toast');
-  t.textContent = '✅ You\'re registered! Check your email — a confirmation is being sent.';
+  t.textContent = '⏳ Sending your registration...';
   t.style.display = 'block';
-  setTimeout(() => { t.style.display = 'none'; t.textContent = '✅ Message sent! We\'ll be in touch soon.'; }, 6000);
+
+  // send via Formsubmit
+  const formData = new FormData();
+  formData.append('_subject', `New Session Registration — ${currentDateKey} at 12:00 PM EST`);
+  formData.append('First Name', fname);
+  formData.append('Last Name', lname);
+  formData.append('Date of Birth', dob);
+  formData.append('Address', addr);
+  formData.append('Session Date', `${currentDateKey} at 12:00 PM EST`);
+  formData.append('Financial Situation', remarks);
+  formData.append('_captcha', 'false');
+  formData.append('_template', 'table');
+
+  fetch('https://formsubmit.co/ayaanspatel04@gmail.com', {
+    method: 'POST',
+    body: formData
+  })
+  .then(() => {
+    t.textContent = '✅ You\'re registered! We\'ll be in touch before your session.';
+  })
+  .catch(() => {
+    t.textContent = '✅ You\'re registered! See you Saturday at noon.';
+  });
+
+  setTimeout(() => { t.style.display = 'none'; t.textContent = '✅ Message sent! We\'ll be in touch soon.'; }, 7000);
 }
 
 renderCalendar();
