@@ -1170,7 +1170,7 @@ function setVolunteer(dateKey, name) {
   localStorage.setItem('vol_' + dateKey, name);
 }
 
-function renderVolSign Up for Advisory Session() {
+function renderVolCalendar() {
   const grid = document.getElementById('volGrid');
   if (!grid) return;
   const saturdays = getUpcomingSaturdays(8);
@@ -1229,7 +1229,7 @@ function submitVolunteer() {
 
   document.getElementById('volModalOverlay').classList.remove('open');
   document.body.style.overflow = '';
-  renderVolSign Up for Advisory Session();
+  renderVolCalendar();
 
   const t = document.getElementById('toast');
   t.textContent = '⏳ Submitting your volunteer application...';
@@ -1261,7 +1261,7 @@ function submitVolunteer() {
   setTimeout(() => { t.style.display = 'none'; t.textContent = '✅ Message sent! We\'ll be in touch soon.'; }, 7000);
 }
 
-renderVolSign Up for Advisory Session();
+renderVolCalendar();
 
 // ── TOPICS ──
 function showTopic(section, topic, btn) {
