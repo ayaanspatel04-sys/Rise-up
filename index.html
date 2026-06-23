@@ -23,7 +23,7 @@ nav{
   padding:0 5%;height:72px;
   border-bottom:1px solid rgba(201,147,58,0.25);
 }
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;cursor:pointer;text-decoration:none}
+.nav-logo{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;color:#fff;cursor:pointer;text-decoration:none}
 .nav-logo span{color:var(--gold)}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.2s}
@@ -218,6 +218,32 @@ footer ul a:hover{color:var(--gold)}
 .modal-submit:hover{background:var(--gold-lt)}
 .modal-note{font-size:0.78rem;color:var(--muted);text-align:center;margin-top:0.75rem;line-height:1.5}
 
+/* VOLUNTEER SECTION */
+#volunteer-section{background:var(--cream);padding:6rem 5%}
+#volunteer-section .section-h{color:var(--navy)}
+.vol-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem}
+.vol-card{background:#fff;border-radius:12px;padding:1.5rem;text-align:center;border:1.5px solid var(--gray);transition:all 0.2s}
+.vol-card:hover{border-color:var(--green);box-shadow:0 6px 20px rgba(0,0,0,0.07);transform:translateY(-2px)}
+.vol-card.claimed{opacity:0.5;pointer-events:none}
+.vol-month{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.4rem}
+.vol-day{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--navy);line-height:1}
+.vol-weekday{font-size:0.78rem;color:var(--muted);margin-top:0.2rem;margin-bottom:1rem}
+.vol-time{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:0.5rem}
+.vol-status{font-size:0.75rem;margin-bottom:1.1rem;font-weight:600}
+.vol-status.open{color:var(--green)}
+.vol-status.taken{color:#ef4444}
+.vol-btn{width:100%;padding:0.6rem;border-radius:5px;background:var(--green);color:#fff;border:none;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.vol-btn:hover{background:var(--green-lt)}
+.vol-btn.taken-btn{background:var(--gray);color:var(--muted);cursor:not-allowed}
+
+/* VOLUNTEER MODAL */
+.vol-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:200;align-items:center;justify-content:center;padding:1rem}
+.vol-modal-overlay.open{display:flex}
+.vol-modal{background:#fff;border-radius:16px;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative}
+.vol-modal-close{position:absolute;top:1.25rem;right:1.25rem;background:var(--gray);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center}
+.vol-modal-close:hover{background:#ddd}
+.vol-badge{display:inline-block;background:rgba(45,106,79,0.1);color:var(--green);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:20px;margin-bottom:1rem}
+
 /* FADE IN */
 .fade-in{opacity:0;transform:translateY(22px);transition:opacity 0.6s,transform 0.6s}
 .fade-in.visible{opacity:1;transform:translateY(0)}
@@ -233,6 +259,7 @@ footer ul a:hover{color:var(--gold)}
   .stats-bar{gap:2rem}
   .steps-inline{grid-template-columns:1fr}
   .sat-grid{grid-template-columns:repeat(2,1fr)}
+  .vol-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:700px){
   footer{grid-template-columns:1fr}
@@ -241,6 +268,7 @@ footer ul a:hover{color:var(--gold)}
   .hero h1{font-size:2rem}
   .form-row{grid-template-columns:1fr}
   .sat-grid{grid-template-columns:1fr}
+  .vol-grid{grid-template-columns:1fr}
   .modal .form-row{grid-template-columns:1fr}
 }
 </style>
@@ -255,6 +283,7 @@ footer ul a:hover{color:var(--gold)}
     <li><a href="#financial">Financial Literacy</a></li>
     <li><a href="#reentry">Reentry Resources</a></li>
     <li><a href="#calendar-section">Calendar</a></li>
+    <li><a href="#volunteer-section">Volunteers</a></li>
     <li><a href="#about">About Us</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -265,8 +294,9 @@ footer ul a:hover{color:var(--gold)}
 <div class="mobile-menu" id="mmenu">
   <a href="#financial"        onclick="this.closest('.mobile-menu').classList.remove('open')">Financial Literacy</a>
   <a href="#reentry"          onclick="this.closest('.mobile-menu').classList.remove('open')">Reentry Resources</a>
-  <a href="#calendar-section" onclick="this.closest('.mobile-menu').classList.remove('open')">Calendar</a>
-  <a href="#about"            onclick="this.closest('.mobile-menu').classList.remove('open')">About Us</a>
+  <a href="#calendar-section"  onclick="this.closest('.mobile-menu').classList.remove('open')">Calendar</a>
+  <a href="#volunteer-section" onclick="this.closest('.mobile-menu').classList.remove('open')">Volunteers</a>
+  <a href="#about"             onclick="this.closest('.mobile-menu').classList.remove('open')">About Us</a>
   <a href="#contact"          onclick="this.closest('.mobile-menu').classList.remove('open')">Contact</a>
 </div>
 
@@ -287,7 +317,7 @@ footer ul a:hover{color:var(--gold)}
 <div class="stats-bar">
   <div class="stat"><div class="stat-num">5</div><div class="stat-label">Core Topics Covered</div></div>
   <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free — Always</div></div>
-  <div class="stat"><div class="stat-num">No</div><div class="stat-label">Sign-Up Required</div></div>
+  <div class="stat"><div class="stat-num">No</div><div class="stat-label">Purchase Required</div></div>
   <div class="stat"><div class="stat-num">Plain</div><div class="stat-label">Language. No Jargon.</div></div>
 </div>
 
@@ -860,6 +890,50 @@ footer ul a:hover{color:var(--gold)}
   </div>
 </div>
 
+<!-- VOLUNTEER SECTION -->
+<section id="volunteer-section">
+  <p class="label green">Volunteer Instructors</p>
+  <h2 class="section-h">Sign Up to Lead a Saturday Session</h2>
+  <p class="section-p">RiseUp Community is powered by volunteers who share their expertise in financial literacy and reentry support. If you'd like to lead a session, pick an available Saturday below and sign up. Each session is at 12:00 PM EST and is limited to one volunteer instructor per session.</p>
+  <div class="vol-grid" id="volGrid"></div>
+</section>
+
+<!-- VOLUNTEER MODAL -->
+<div class="vol-modal-overlay" id="volModalOverlay" onclick="closeVolModal(event)">
+  <div class="vol-modal">
+    <button class="vol-modal-close" onclick="document.getElementById('volModalOverlay').classList.remove('open')">✕</button>
+    <div class="vol-badge">Volunteer Sign-Up</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy);margin-bottom:0.4rem">Lead a Session</h2>
+    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.75rem" id="volModalDateLine">Saturday — 12:00 PM EST</p>
+    <div class="form-row">
+      <div class="fg"><label>First Name *</label><input id="vfname" type="text" placeholder="First name"></div>
+      <div class="fg"><label>Last Name *</label><input id="vlname" type="text" placeholder="Last name"></div>
+    </div>
+    <div class="fg"><label>Email Address *</label><input id="vemail" type="email" placeholder="you@email.com"></div>
+    <div class="fg"><label>Phone Number</label><input id="vphone" type="tel" placeholder="(555) 000-0000"></div>
+    <div class="fg">
+      <label>Area of Expertise *</label>
+      <select id="vexpertise">
+        <option value="">Select your area...</option>
+        <option>Financial Literacy — Budgeting</option>
+        <option>Financial Literacy — Credit & Scores</option>
+        <option>Financial Literacy — Banking</option>
+        <option>Financial Literacy — Debt Management</option>
+        <option>Financial Literacy — Investing</option>
+        <option>Reentry — Employment & Job Readiness</option>
+        <option>Reentry — Housing Navigation</option>
+        <option>Reentry — Benefits & Identity Documents</option>
+        <option>Reentry — Legal Rights & Expungement</option>
+        <option>Reentry — Financial Start After Release</option>
+        <option>General Life Skills</option>
+      </select>
+    </div>
+    <div class="fg"><label>Brief Bio / Qualifications *</label><textarea id="vbio" placeholder="Tell us about your background and why you'd like to volunteer as an instructor..." style="min-height:90px"></textarea></div>
+    <button class="modal-submit" style="background:var(--green)" onclick="submitVolunteer()">Sign Up as Volunteer →</button>
+    <p class="modal-note">🔒 Your information is completely confidential and only used to coordinate your session.</p>
+  </div>
+</div>
+
 <!-- ABOUT -->
 <section id="about">
   <p class="label light">Founder</p>
@@ -1087,6 +1161,107 @@ function submitRegistration() {
 }
 
 renderCalendar();
+
+// ── VOLUNTEER CALENDAR ──
+function getVolunteer(dateKey) {
+  return localStorage.getItem('vol_' + dateKey) || null;
+}
+function setVolunteer(dateKey, name) {
+  localStorage.setItem('vol_' + dateKey, name);
+}
+
+function renderVolCalendar() {
+  const grid = document.getElementById('volGrid');
+  if (!grid) return;
+  const saturdays = getUpcomingSaturdays(8);
+  grid.innerHTML = '';
+  saturdays.forEach(sat => {
+    const key = sat.toISOString().split('T')[0];
+    const volunteer = getVolunteer(key);
+    const isTaken = !!volunteer;
+    const dateStr = `${SHORT_MONTHS[sat.getMonth()]} ${sat.getDate()}, ${sat.getFullYear()}`;
+
+    const card = document.createElement('div');
+    card.className = 'vol-card' + (isTaken ? ' claimed' : '');
+    card.innerHTML = `
+      <div class="vol-month">${MONTHS[sat.getMonth()]} ${sat.getFullYear()}</div>
+      <div class="vol-day">${sat.getDate()}</div>
+      <div class="vol-weekday">Saturday</div>
+      <div class="vol-time">🕛 12:00 PM EST</div>
+      <div class="vol-status ${isTaken ? 'taken' : 'open'}">${isTaken ? 'Session Claimed' : 'Open — Volunteer Needed'}</div>
+      <button class="vol-btn ${isTaken ? 'taken-btn' : ''}" onclick="openVolModal('${key}','${dateStr}')">${isTaken ? 'Session Taken' : 'Sign Up to Lead'}</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+let currentVolDateKey = '';
+function openVolModal(dateKey, dateStr) {
+  currentVolDateKey = dateKey;
+  document.getElementById('volModalDateLine').textContent = `Saturday, ${dateStr} — 12:00 PM EST`;
+  document.getElementById('volModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  ['vfname','vlname','vemail','vphone','vbio'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+  document.getElementById('vexpertise').selectedIndex = 0;
+}
+function closeVolModal(e) {
+  if (e.target === document.getElementById('volModalOverlay')) {
+    document.getElementById('volModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+function submitVolunteer() {
+  const fname     = document.getElementById('vfname').value.trim();
+  const lname     = document.getElementById('vlname').value.trim();
+  const email     = document.getElementById('vemail').value.trim();
+  const phone     = document.getElementById('vphone').value.trim();
+  const expertise = document.getElementById('vexpertise').value;
+  const bio       = document.getElementById('vbio').value.trim();
+
+  if (!fname)     { alert('Please enter your first name.'); return; }
+  if (!lname)     { alert('Please enter your last name.'); return; }
+  if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
+  if (!expertise) { alert('Please select your area of expertise.'); return; }
+  if (!bio)       { alert('Please fill in your bio/qualifications.'); return; }
+
+  setVolunteer(currentVolDateKey, `${fname} ${lname}`);
+
+  document.getElementById('volModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  renderVolCalendar();
+
+  const t = document.getElementById('toast');
+  t.textContent = '⏳ Submitting your volunteer application...';
+  t.style.display = 'block';
+
+  const formData = new FormData();
+  formData.append('_subject', `New Volunteer Sign-Up — ${currentVolDateKey} at 12:00 PM EST`);
+  formData.append('First Name', fname);
+  formData.append('Last Name', lname);
+  formData.append('Email', email);
+  formData.append('Phone', phone || 'Not provided');
+  formData.append('Area of Expertise', expertise);
+  formData.append('Session Date', `${currentVolDateKey} at 12:00 PM EST`);
+  formData.append('Bio / Qualifications', bio);
+  formData.append('_captcha', 'false');
+  formData.append('_template', 'table');
+
+  fetch('https://formsubmit.co/ayaanspatel04@gmail.com', {
+    method: 'POST',
+    body: formData
+  })
+  .then(() => {
+    t.textContent = '✅ Thank you for volunteering! We\'ll be in touch with session details.';
+  })
+  .catch(() => {
+    t.textContent = '✅ Thank you for volunteering! We\'ll reach out soon.';
+  });
+
+  setTimeout(() => { t.style.display = 'none'; t.textContent = '✅ Message sent! We\'ll be in touch soon.'; }, 7000);
+}
+
+renderVolCalendar();
 
 // ── TOPICS ──
 function showTopic(section, topic, btn) {
