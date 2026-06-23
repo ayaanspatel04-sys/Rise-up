@@ -1048,7 +1048,7 @@ function getUpcomingSaturdays(count) {
   return saturdays;
 }
 
-function renderSign Up for Advisory Session() {
+function renderCalendar() {
   const grid = document.getElementById('satGrid');
   if (!grid) return;
   const saturdays = getUpcomingSaturdays(8);
@@ -1127,7 +1127,7 @@ function submitRegistration() {
   // close modal immediately
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow = '';
-  renderSign Up for Advisory Session();
+  renderCalendar();
 
   // show sending toast
   const t = document.getElementById('toast');
@@ -1160,7 +1160,7 @@ function submitRegistration() {
   setTimeout(() => { t.style.display = 'none'; t.textContent = '✅ Message sent! We\'ll be in touch soon.'; }, 7000);
 }
 
-renderSign Up for Advisory Session();
+renderCalendar();
 
 // ── VOLUNTEER CALENDAR ──
 function getVolunteer(dateKey) {
