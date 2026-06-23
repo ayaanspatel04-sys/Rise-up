@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RiseUp Community — Free Online Classes</title>
+<title>RiseUp Community — Free Financial & Reentry Education</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -14,6 +14,7 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+
 /* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -22,27 +23,24 @@ nav{
   padding:0 5%;height:72px;
   border-bottom:1px solid rgba(201,147,58,0.25);
 }
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;cursor:pointer}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;cursor:pointer;text-decoration:none}
 .nav-logo span{color:var(--gold)}
-.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.2s}
 .nav-links a:hover{color:var(--gold)}
-.nav-cta{background:var(--gold);color:var(--navy)!important;padding:0.5rem 1.25rem;border-radius:4px;font-weight:600!important}
-.nav-cta:hover{background:var(--gold-lt)!important}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .nav-hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px}
 .mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(13,27,42,0.98);flex-direction:column;padding:1.5rem 5% 2rem;gap:1.25rem;z-index:99;border-bottom:1px solid rgba(201,147,58,0.2)}
 .mobile-menu.open{display:flex}
-.mobile-menu a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:1rem;font-weight:500;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.mobile-menu a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:1rem;font-weight:500;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.07)}
 .mobile-menu a:hover{color:var(--gold)}
-.mob-cta{background:var(--gold)!important;color:var(--navy)!important;padding:0.75rem 1.5rem!important;border-radius:4px;text-align:center;font-weight:600;margin-top:0.5rem;border:none}
+
 /* HERO */
 .hero{
   min-height:100vh;margin-top:72px;
   background:var(--navy);
   display:flex;flex-direction:column;justify-content:center;
-  padding:6rem 5% 5rem;
-  position:relative;overflow:hidden;
+  padding:6rem 5% 5rem;position:relative;overflow:hidden;
 }
 .hero::before{
   content:'';position:absolute;inset:0;
@@ -50,21 +48,20 @@ nav{
              radial-gradient(ellipse at 10% 80%,rgba(45,106,79,0.15) 0%,transparent 50%);
   pointer-events:none;
 }
-.hero-inner{max-width:720px;position:relative}
+.hero-inner{max-width:760px;position:relative}
 .hero-badge{
   display:inline-flex;align-items:center;gap:0.6rem;
   background:rgba(201,147,58,0.15);border:1px solid rgba(201,147,58,0.3);
   color:var(--gold-lt);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;
   text-transform:uppercase;padding:0.4rem 1rem;border-radius:20px;margin-bottom:1.75rem;
 }
-.hero-badge::before{content:'🎓'}
 .hero h1{
   font-family:'Playfair Display',serif;
   font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;
   color:#fff;line-height:1.15;margin-bottom:1.5rem;
 }
 .hero h1 em{color:var(--gold);font-style:normal}
-.hero p{color:rgba(255,255,255,0.7);font-size:1.1rem;line-height:1.75;max-width:580px;margin-bottom:2.5rem}
+.hero p{color:rgba(255,255,255,0.7);font-size:1.1rem;line-height:1.75;max-width:600px;margin-bottom:2.5rem}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 1.9rem;border-radius:5px;font-size:0.92rem;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
 .btn-gold{background:var(--gold);color:var(--navy)}
@@ -72,117 +69,83 @@ nav{
 .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35)}
 .btn-outline:hover{background:rgba(255,255,255,0.08);transform:translateY(-1px)}
 .btn-green{background:var(--green);color:#fff}
-.btn-green:hover{background:var(--green-lt);transform:translateY(-1px);box-shadow:0 6px 20px rgba(45,106,79,0.35)}
+.btn-green:hover{background:var(--green-lt);transform:translateY(-1px)}
+
+/* STATS BAR */
+.stats-bar{background:var(--gold);padding:1.5rem 5%;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--navy);line-height:1}
+.stat-label{font-size:0.78rem;font-weight:600;color:rgba(13,27,42,0.7);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.2rem}
+
 /* SHARED */
 section{padding:6rem 5%}
 .label{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem}
 .label::before{content:'';display:block;width:28px;height:2px;background:currentColor}
-.label.gold{color:var(--gold)}.label.green{color:var(--green)}.label.light{color:var(--gold-lt)}
-.section-h{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:1.25rem;max-width:600px}
-.section-p{color:var(--muted);font-size:1rem;line-height:1.75;max-width:620px;margin-bottom:2rem}
-/* HOW IT WORKS */
-#how{background:var(--cream)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
-.step{background:#fff;border-radius:12px;padding:2rem 1.75rem;border-top:4px solid var(--gold);transition:box-shadow 0.2s}
-.step:hover{box-shadow:0 8px 28px rgba(0,0,0,0.08)}
-.step-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);opacity:0.5;line-height:1;margin-bottom:0.9rem}
-.step h3{font-size:0.98rem;font-weight:600;color:var(--navy);margin-bottom:0.5rem}
-.step p{font-size:0.85rem;color:var(--muted);line-height:1.65}
-/* CLASSES */
-#classes{background:#fff}
-.track-tabs{display:flex;gap:0.75rem;margin-bottom:2.5rem;flex-wrap:wrap}
-.track-tab{padding:0.55rem 1.4rem;border-radius:20px;border:1.5px solid var(--gold);background:transparent;color:var(--gold);font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}
-.track-tab:hover,.track-tab.active{background:var(--gold);color:var(--navy)}
-.track-tab.g{border-color:var(--green);color:var(--green)}
-.track-tab.g:hover,.track-tab.g.active{background:var(--green);color:#fff}
-.classes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.class-card{background:var(--cream);border-radius:12px;padding:1.75rem;border:1.5px solid transparent;transition:all 0.2s;display:none;flex-direction:column}
-.class-card.show{display:flex}
-.class-card:hover{border-color:var(--gold);box-shadow:0 6px 24px rgba(0,0,0,0.07);transform:translateY(-2px)}
-.class-card.rc:hover{border-color:var(--green)}
-.cbadge{display:inline-block;font-size:0.67rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:20px;margin-bottom:1rem}
-.cbadge.fin{background:rgba(201,147,58,0.12);color:var(--gold)}
-.cbadge.ree{background:rgba(45,106,79,0.1);color:var(--green)}
-.class-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:0.5rem}
-.class-card p{font-size:0.85rem;color:var(--muted);line-height:1.65;flex:1}
-.class-meta{display:flex;gap:0.9rem;flex-wrap:wrap;font-size:0.76rem;color:var(--muted);border-top:1px solid #ddd;padding-top:0.9rem;margin-top:1rem}
-.class-meta span{display:flex;align-items:center;gap:0.3rem}
-.enroll-btn{display:inline-block;margin-top:1rem;padding:0.55rem 1.2rem;border-radius:4px;font-size:0.82rem;font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all 0.2s;text-align:center}
-.eb-gold{background:var(--gold);color:var(--navy)}.eb-gold:hover{background:var(--gold-lt)}
-.eb-green{background:var(--green);color:#fff}.eb-green:hover{background:var(--green-lt)}
-/* CALENDAR */
-#calendar{background:var(--navy)}
-#calendar .section-h{color:#fff;max-width:100%}
-#calendar .section-p{color:rgba(255,255,255,0.6)}
-.cal-layout{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start;margin-top:3rem}
-/* Month grid */
-.cal-grid-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden}
-.cal-header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.1)}
-.cal-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;font-weight:600}
-.cal-nav{display:flex;gap:0.5rem}
-.cal-nav button{background:rgba(255,255,255,0.08);border:none;color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:1rem;transition:background 0.2s;display:flex;align-items:center;justify-content:center}
-.cal-nav button:hover{background:rgba(201,147,58,0.3)}
-.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;padding:0.75rem 0.5rem 0.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
-.cal-days-header span{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.35);text-transform:uppercase}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:0.75rem}
-.cal-day{
-  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
-  border-radius:8px;font-size:0.82rem;font-weight:500;
-  color:rgba(255,255,255,0.4);cursor:default;transition:all 0.15s;
-}
-.cal-day.other-month{color:rgba(255,255,255,0.12)}
-.cal-day.today{background:rgba(255,255,255,0.1);color:#fff;font-weight:700}
-.cal-day.has-class{
-  background:rgba(201,147,58,0.18);color:var(--gold-lt);
-  cursor:pointer;font-weight:600;position:relative;
-}
-.cal-day.has-class::after{
-  content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);
-  width:4px;height:4px;border-radius:50%;background:var(--gold);
-}
-.cal-day.has-class.green-day{background:rgba(45,106,79,0.25);color:#8eded8}
-.cal-day.has-class.green-day::after{background:var(--green-lt)}
-.cal-day.has-class:hover{transform:scale(1.12);box-shadow:0 4px 12px rgba(0,0,0,0.3)}
-.cal-day.selected{outline:2px solid var(--gold);outline-offset:1px}
-.cal-day.selected.green-day{outline-color:var(--green-lt)}
-/* Upcoming sidebar */
-.upcoming{display:flex;flex-direction:column;gap:1rem}
-.upcoming h4{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.25rem}
-.event-card{
-  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
-  border-radius:10px;padding:1.1rem 1.25rem;
-  cursor:pointer;transition:all 0.2s;
-  border-left:3px solid var(--gold);
-}
-.event-card.green-ev{border-left-color:var(--green-lt)}
-.event-card:hover{background:rgba(255,255,255,0.09);transform:translateX(3px)}
-.event-card.selected{background:rgba(201,147,58,0.12);border-color:var(--gold)}
-.event-card.green-ev.selected{background:rgba(45,106,79,0.18);border-color:var(--green-lt)}
-.ev-date{font-size:0.72rem;font-weight:600;letter-spacing:0.06em;color:var(--gold-lt);margin-bottom:0.3rem}
-.event-card.green-ev .ev-date{color:#8eded8}
-.ev-title{font-size:0.92rem;font-weight:600;color:#fff;margin-bottom:0.2rem}
-.ev-meta{font-size:0.78rem;color:rgba(255,255,255,0.45);display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.75rem}
-.ev-enroll{display:inline-block;padding:0.4rem 1rem;border-radius:4px;font-size:0.78rem;font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all 0.2s;text-decoration:none}
-.ev-enroll.gold-e{background:var(--gold);color:var(--navy)}.ev-enroll.gold-e:hover{background:var(--gold-lt)}
-.ev-enroll.green-e{background:var(--green);color:#fff}.ev-enroll.green-e:hover{background:var(--green-lt)}
-/* REENTRY TRACK */
+.label.gold{color:var(--gold)}.label.green{color:var(--green)}.label.light{color:var(--gold-lt)}.label.white{color:rgba(255,255,255,0.5)}
+.section-h{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:1rem}
+.section-p{color:var(--muted);font-size:1rem;line-height:1.75;max-width:650px;margin-bottom:2.5rem}
+
+/* TOPIC TABS */
+.topic-tabs{display:flex;gap:0.6rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.topic-tab{padding:0.5rem 1.25rem;border-radius:20px;border:1.5px solid var(--gold);background:transparent;color:var(--gold);font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}
+.topic-tab:hover,.topic-tab.active{background:var(--gold);color:var(--navy)}
+.topic-tab.g{border-color:var(--green);color:var(--green)}
+.topic-tab.g:hover,.topic-tab.g.active{background:var(--green);color:#fff}
+
+/* TOPIC PANELS */
+.topic-panel{display:none}
+.topic-panel.active{display:block}
+
+/* CONTENT CARD GRID */
+.content-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.content-card{background:var(--cream);border-radius:14px;padding:2rem;border-left:4px solid var(--gold);transition:box-shadow 0.2s}
+.content-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.08)}
+.content-card.green-card{border-left-color:var(--green)}
+.content-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.6rem}
+.content-card p{color:var(--muted);font-size:0.92rem;line-height:1.75;margin-bottom:1rem}
+.content-card ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.content-card ul li{font-size:0.88rem;color:var(--text);padding-left:1.2rem;position:relative;line-height:1.6}
+.content-card ul li::before{content:'→';position:absolute;left:0;color:var(--gold);font-weight:700}
+.content-card.green-card ul li::before{color:var(--green)}
+.tip-box{background:#fff;border:1px solid var(--gray);border-radius:8px;padding:1rem 1.25rem;margin-top:1rem;font-size:0.85rem;color:var(--text);line-height:1.65}
+.tip-box strong{color:var(--gold)}
+.content-card.green-card .tip-box strong{color:var(--green)}
+
+/* FULL-WIDTH CONTENT CARD */
+.content-card-wide{background:var(--cream);border-radius:14px;padding:2rem;border-left:4px solid var(--gold);margin-bottom:1.5rem}
+.content-card-wide.green-card{border-left-color:var(--green)}
+.content-card-wide h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);margin-bottom:0.75rem}
+.content-card-wide p{color:var(--muted);font-size:0.92rem;line-height:1.75;margin-bottom:0.75rem}
+.steps-inline{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.step-inline{background:#fff;border-radius:8px;padding:1rem 1.1rem;text-align:center}
+.step-inline .num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold);line-height:1}
+.content-card-wide.green-card .step-inline .num{color:var(--green)}
+.step-inline p{font-size:0.82rem;color:var(--muted);margin:0.3rem 0 0;line-height:1.5}
+
+/* HIGHLIGHT BOX */
+.highlight-box{background:var(--navy);border-radius:14px;padding:2rem;color:#fff;margin-top:2rem}
+.highlight-box h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-lt);margin-bottom:0.75rem}
+.highlight-box p{color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.7}
+.highlight-box ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-top:0.5rem}
+.highlight-box ul li{font-size:0.88rem;color:rgba(255,255,255,0.75);padding-left:1.2rem;position:relative}
+.highlight-box ul li::before{content:'✓';position:absolute;left:0;color:var(--gold-lt)}
+
+/* FINANCIAL SECTION */
+#financial{background:#fff}
+
+/* REENTRY SECTION */
 #reentry{background:var(--cream)}
-.reentry-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.rentry-cards-list{display:flex;flex-direction:column;gap:1rem}
-.rc-card{background:#fff;border-radius:10px;padding:1.4rem 1.6rem;display:flex;gap:1.1rem;align-items:flex-start;border:1px solid var(--gray);transition:box-shadow 0.2s}
-.rc-card:hover{box-shadow:0 6px 20px rgba(0,0,0,0.07)}
-.rc-icon{width:42px;height:42px;border-radius:8px;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
-.rc-card h3{font-size:0.94rem;font-weight:600;color:var(--navy);margin-bottom:0.25rem}
-.rc-card p{font-size:0.83rem;color:var(--muted);line-height:1.6}
-/* GET STARTED */
-#getstarted{background:var(--green);text-align:center;padding:5rem 5%}
-#getstarted .section-h{color:#fff;margin:0 auto 1rem;text-align:center}
-#getstarted .section-p{color:rgba(255,255,255,0.7);text-align:center;margin:0 auto 2.25rem}
-.gs-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-.btn-white{background:#fff;color:var(--green);padding:0.9rem 1.9rem;border-radius:5px;font-size:0.92rem;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
-.btn-white:hover{background:var(--cream);transform:translateY(-1px)}
-.btn-outline-w{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4);padding:0.9rem 1.9rem;border-radius:5px;font-size:0.92rem;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border-radius:5px;font-family:'Inter',sans-serif}
-.btn-outline-w:hover{background:rgba(255,255,255,0.1)}
+
+/* ABOUT */
+#about{background:var(--navy);color:#fff}
+#about .section-h{color:#fff}
+#about .section-p{color:rgba(255,255,255,0.65)}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.value-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.75rem;text-align:center}
+.value-icon{font-size:2rem;margin-bottom:0.9rem}
+.value-card h3{font-size:0.95rem;font-weight:600;color:#fff;margin-bottom:0.5rem}
+.value-card p{font-size:0.84rem;color:rgba(255,255,255,0.55);line-height:1.65}
+
 /* CONTACT */
 #contact{background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;padding:6rem 5%}
 .contact-info h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.1rem);color:var(--navy);margin-bottom:1rem}
@@ -192,311 +155,726 @@ section{padding:6rem 5%}
 .cinfo-icon{width:38px;height:38px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0}
 .cinfo-item span{font-size:0.9rem;color:var(--text);font-weight:500}
 .contact-form{display:flex;flex-direction:column;gap:1rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .fg{display:flex;flex-direction:column;gap:0.35rem}
 .fg label{font-size:0.8rem;font-weight:600;color:var(--navy)}
 .fg input,.fg select,.fg textarea{padding:0.72rem 1rem;border:1.5px solid #D4D9E0;border-radius:6px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--text);background:#fff;transition:border-color 0.2s;outline:none}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
-.fg textarea{resize:vertical;min-height:100px}
+.fg textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .form-submit{background:var(--gold);color:var(--navy);border:none;padding:0.9rem 2rem;border-radius:4px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;align-self:flex-start}
-.form-submit:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 5px 16px rgba(201,147,58,0.3)}
+.form-submit:hover{background:var(--gold-lt);transform:translateY(-1px)}
+
 /* TOAST */
 .toast{display:none;position:fixed;bottom:2rem;right:2rem;background:var(--green);color:#fff;padding:1rem 1.5rem;border-radius:8px;font-size:0.9rem;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:200}
+
 /* FOOTER */
-footer{background:#060F19;color:rgba(255,255,255,0.45);padding:3rem 5%;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+footer{background:#060F19;color:rgba(255,255,255,0.45);padding:3rem 5%;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
 .footer-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;display:block;margin-bottom:0.75rem;cursor:pointer}
 .footer-logo span{color:var(--gold)}
-footer p{font-size:0.85rem;line-height:1.7;max-width:260px}
+footer p{font-size:0.85rem;line-height:1.7;max-width:280px}
 footer h4{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:1rem}
 footer ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
 footer ul a{color:rgba(255,255,255,0.38);text-decoration:none;font-size:0.875rem;transition:color 0.2s}
 footer ul a:hover{color:var(--gold)}
 .footer-bottom{background:#060F19;border-top:1px solid rgba(255,255,255,0.07);padding:1.25rem 5%;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:rgba(255,255,255,0.22)}
+
 /* FADE IN */
 .fade-in{opacity:0;transform:translateY(22px);transition:opacity 0.6s,transform 0.6s}
 .fade-in.visible{opacity:1;transform:translateY(0)}
+
 /* RESPONSIVE */
 @media(max-width:1000px){
-  .cal-layout{grid-template-columns:1fr}
-  .reentry-grid{grid-template-columns:1fr;gap:2.5rem}
+  .content-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr 1fr}
   #contact{grid-template-columns:1fr;gap:3rem}
-  .steps{grid-template-columns:1fr 1fr}
   footer{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
   .nav-hamburger{display:flex}
+  .stats-bar{gap:2rem}
+  .steps-inline{grid-template-columns:1fr}
 }
 @media(max-width:700px){
-  .classes-grid{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr}
   footer{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;gap:0.5rem;text-align:center}
   .hero h1{font-size:2rem}
+  .form-row{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<div class="toast" id="toast">✅ You're registered! Check your email for the class link.</div>
+<div class="toast" id="toast">✅ Message sent! We'll be in touch soon.</div>
+
 <!-- NAV -->
 <nav>
-  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Rise<span>Up</span> Community</div>
+  <a class="nav-logo" href="#">Rise<span>Up</span> Community</a>
   <ul class="nav-links">
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#classes">Online Classes</a></li>
-    <li><a href="#calendar">Class Schedule</a></li>
-    <li><a href="#reentry">Second Chances</a></li>
-    <li><a href="#contact" class="nav-cta">Register Free</a></li>
+    <li><a href="#financial">Financial Literacy</a></li>
+    <li><a href="#reentry">Reentry Resources</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-hamburger" id="hbg" onclick="document.getElementById('mmenu').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
 </nav>
 <div class="mobile-menu" id="mmenu">
-  <a href="#how"      onclick="this.closest('.mobile-menu').classList.remove('open')">How It Works</a>
-  <a href="#classes"  onclick="this.closest('.mobile-menu').classList.remove('open')">Online Classes</a>
-  <a href="#calendar" onclick="this.closest('.mobile-menu').classList.remove('open')">Class Schedule</a>
-  <a href="#reentry"  onclick="this.closest('.mobile-menu').classList.remove('open')">Second Chances</a>
-  <a href="#contact"  onclick="this.closest('.mobile-menu').classList.remove('open')" class="mob-cta">Register Free</a>
+  <a href="#financial" onclick="this.closest('.mobile-menu').classList.remove('open')">Financial Literacy</a>
+  <a href="#reentry"   onclick="this.closest('.mobile-menu').classList.remove('open')">Reentry Resources</a>
+  <a href="#about"     onclick="this.closest('.mobile-menu').classList.remove('open')">About Us</a>
+  <a href="#contact"   onclick="this.closest('.mobile-menu').classList.remove('open')">Contact</a>
 </div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">Free Online Classes — Live &amp; Interactive</div>
-    <h1>Learn from <em>Certified Professionals.</em><br>Change Your Life Online.</h1>
-    <p>RiseUp Community offers free, live online classes in financial literacy and reentry life skills — taught by certified counselors, licensed social workers, and employment professionals who are here for you.</p>
+    <div class="hero-badge">Free Education — No Sign-Up Required</div>
+    <h1>Knowledge Is the First Step to <em>Financial Freedom.</em></h1>
+    <p>RiseUp Community provides free, straightforward education on personal finance and reentry life skills. Everything you need to know — in plain language, right here on this page.</p>
     <div class="hero-btns">
-      <a href="#classes"  class="btn btn-gold">Browse Classes →</a>
-      <a href="#calendar" class="btn btn-outline">View Upcoming Dates</a>
+      <a href="#financial" class="btn btn-gold">Financial Literacy →</a>
+      <a href="#reentry"   class="btn btn-outline">Reentry Resources →</a>
     </div>
   </div>
 </section>
-<!-- HOW IT WORKS -->
-<section id="how">
-  <p class="label gold">How It Works</p>
-  <h2 class="section-h">Simple. Free. Online.</h2>
-  <p class="section-p">All classes are held live over video — no downloads, no subscriptions, no fees. Here's all it takes to get started.</p>
-  <div class="steps fade-in">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h3>Register Free</h3>
-      <p>Fill out the short form below with your name, email, and which class you want. That's it — no income requirements, no background check.</p>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Core Topics Covered</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free — Always</div></div>
+  <div class="stat"><div class="stat-num">No</div><div class="stat-label">Sign-Up Required</div></div>
+  <div class="stat"><div class="stat-num">Plain</div><div class="stat-label">Language. No Jargon.</div></div>
+</div>
+
+<!-- FINANCIAL LITERACY -->
+<section id="financial">
+  <p class="label gold">Financial Literacy</p>
+  <h2 class="section-h">Build a Strong Financial Foundation</h2>
+  <p class="section-p">Whether you're starting from zero or trying to get back on track, understanding money is the foundation of everything. Choose a topic below to learn what you need to know.</p>
+
+  <div class="topic-tabs">
+    <button class="topic-tab active" onclick="showTopic('fin','budgeting',this)">💰 Budgeting</button>
+    <button class="topic-tab"        onclick="showTopic('fin','credit',this)">📊 Credit</button>
+    <button class="topic-tab"        onclick="showTopic('fin','banking',this)">🏦 Banking</button>
+    <button class="topic-tab"        onclick="showTopic('fin','debt',this)">💳 Debt</button>
+    <button class="topic-tab"        onclick="showTopic('fin','investing',this)">📈 Investing</button>
+  </div>
+
+  <!-- BUDGETING -->
+  <div class="topic-panel active" id="fin-budgeting">
+    <div class="content-grid">
+      <div class="content-card">
+        <h3>📋 What Is a Budget?</h3>
+        <p>A budget is simply a plan for your money. It tells your dollars where to go before the month starts — instead of wondering where they went after. Anyone can budget, at any income level.</p>
+        <ul>
+          <li>A budget is not a restriction — it's a permission slip to spend guilt-free</li>
+          <li>You don't need special software. A notebook or spreadsheet works fine</li>
+          <li>Budgets should be rebuilt every month — life changes and so should your plan</li>
+          <li>The goal is awareness first, then control</li>
+        </ul>
+        <div class="tip-box"><strong>Key Insight:</strong> People who budget — even loosely — build wealth 2x faster than those who don't, simply because they know where their money is going.</div>
+      </div>
+      <div class="content-card">
+        <h3>📐 The 50/30/20 Rule</h3>
+        <p>The simplest budgeting framework: divide your take-home pay into three buckets every month. It works for almost any income level.</p>
+        <ul>
+          <li><strong>50% — Needs:</strong> Rent, groceries, utilities, transportation, minimum debt payments</li>
+          <li><strong>30% — Wants:</strong> Eating out, streaming, shopping, hobbies, entertainment</li>
+          <li><strong>20% — Savings & Extra Debt:</strong> Emergency fund, retirement, extra debt payoff</li>
+        </ul>
+        <div class="tip-box"><strong>Example:</strong> If you bring home $2,000/month: $1,000 to needs, $600 to wants, $400 to savings and debt. Adjust the percentages if your situation requires it — the ratio is a guide, not a law.</div>
+      </div>
+      <div class="content-card">
+        <h3>🚨 Build an Emergency Fund First</h3>
+        <p>Before investing, before extra debt payments — build a small emergency fund. This single step prevents most financial setbacks from becoming disasters.</p>
+        <ul>
+          <li>Start with a $500–$1,000 goal — this covers most emergencies</li>
+          <li>Work toward 3–6 months of living expenses over time</li>
+          <li>Keep it in a separate savings account so you're not tempted to spend it</li>
+          <li>Only use it for true emergencies: job loss, medical, car breakdown</li>
+        </ul>
+        <div class="tip-box"><strong>Where to Start:</strong> Even $25/paycheck adds up. Set up an automatic transfer the day you get paid so you never see it.</div>
+      </div>
+      <div class="content-card">
+        <h3>✂️ Cutting Expenses That Drain You</h3>
+        <p>Most people have 3–5 expenses they don't notice but that silently drain $100–$300/month. A quick audit often frees up real money immediately.</p>
+        <ul>
+          <li>List every subscription (streaming, apps, gym, etc.) and cancel unused ones</li>
+          <li>Switch to generic brands for groceries — often identical quality, 30–40% cheaper</li>
+          <li>Meal prep 2–3 days a week to cut food spending significantly</li>
+          <li>Call your phone, internet, and insurance providers to ask for a lower rate — it works more often than people expect</li>
+          <li>Buy used for electronics, furniture, and clothing when possible</li>
+        </ul>
+      </div>
     </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h3>Get Your Link</h3>
-      <p>We email you a private video link before your class starts. Works on any phone, tablet, or computer — no app needed.</p>
+  </div>
+
+  <!-- CREDIT -->
+  <div class="topic-panel" id="fin-credit">
+    <div class="content-grid">
+      <div class="content-card">
+        <h3>📊 Understanding Your Credit Score</h3>
+        <p>Your credit score is a 3-digit number (300–850) that tells lenders how likely you are to repay debt. It affects loans, apartments, sometimes even jobs. Here's exactly what makes it up:</p>
+        <ul>
+          <li><strong>Payment History (35%):</strong> Whether you pay bills on time — the single biggest factor</li>
+          <li><strong>Amounts Owed (30%):</strong> How much of your available credit you're using (keep it under 30%)</li>
+          <li><strong>Length of History (15%):</strong> How long your accounts have been open</li>
+          <li><strong>Credit Mix (10%):</strong> Having different types of credit (credit card, loan, etc.)</li>
+          <li><strong>New Credit (10%):</strong> Recent applications for new credit</li>
+        </ul>
+        <div class="tip-box"><strong>Score Ranges:</strong> 300–579 Poor | 580–669 Fair | 670–739 Good | 740–799 Very Good | 800+ Exceptional</div>
+      </div>
+      <div class="content-card">
+        <h3>📄 Reading Your Credit Report</h3>
+        <p>You're entitled to a free credit report from all three bureaus every year. Your report is different from your score — it's the full history that generates your score.</p>
+        <ul>
+          <li>Get your free report at <strong>AnnualCreditReport.com</strong> — the only official free source</li>
+          <li>Check all three bureaus: Equifax, Experian, and TransUnion</li>
+          <li>Look for accounts you don't recognize (potential identity theft)</li>
+          <li>Check for incorrect late payments, wrong balances, or duplicate accounts</li>
+          <li>Errors are more common than people think — about 1 in 5 reports has a mistake</li>
+        </ul>
+        <div class="tip-box"><strong>Important:</strong> Checking your own credit report does NOT hurt your score. Check it at least once a year.</div>
+      </div>
+      <div class="content-card">
+        <h3>🛠️ Disputing Credit Report Errors</h3>
+        <p>If you find an error on your credit report, you have the legal right to dispute it — and the bureau must investigate within 30 days. This is free and you can do it yourself.</p>
+        <ul>
+          <li>Write a dispute letter to the credit bureau reporting the error</li>
+          <li>Include your name, address, and exactly what the error is</li>
+          <li>Attach copies (not originals) of any documents that support your claim</li>
+          <li>Send via certified mail so you have proof it was received</li>
+          <li>If the bureau can't verify the information, they must remove it</li>
+        </ul>
+        <div class="tip-box"><strong>Free Help:</strong> The Consumer Financial Protection Bureau (CFPB) at ConsumerFinance.gov has free dispute letter templates you can use.</div>
+      </div>
+      <div class="content-card">
+        <h3>🌱 Building Credit From Scratch</h3>
+        <p>If you have no credit history or damaged credit, you can rebuild. It takes time — typically 12–24 months to see significant improvement — but these steps work.</p>
+        <ul>
+          <li><strong>Secured credit card:</strong> You deposit $200–$500 as collateral. Use it for small purchases and pay in full every month</li>
+          <li><strong>Credit-builder loan:</strong> Small loans from credit unions designed specifically to build credit</li>
+          <li><strong>Become an authorized user:</strong> Ask a trusted family member to add you to their credit card account</li>
+          <li><strong>Pay every bill on time:</strong> Even one late payment can drop your score significantly</li>
+          <li><strong>Keep utilization low:</strong> Never use more than 30% of your credit limit</li>
+        </ul>
+      </div>
     </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h3>Attend Live</h3>
-      <p>Join your class live with a certified professional instructor. Ask questions, get real answers, and interact with a small group of peers.</p>
+  </div>
+
+  <!-- BANKING -->
+  <div class="topic-panel" id="fin-banking">
+    <div class="content-grid">
+      <div class="content-card">
+        <h3>🏦 Choosing the Right Bank</h3>
+        <p>Not all banks are equal. The right choice depends on your situation — especially if you've had banking problems in the past (ChexSystems history, overdrafts, etc.).</p>
+        <ul>
+          <li><strong>Credit Unions:</strong> Member-owned, lower fees, more likely to work with people who have banking history issues</li>
+          <li><strong>Online Banks:</strong> Usually no monthly fees, higher savings rates, but no physical branches</li>
+          <li><strong>Big Banks:</strong> Convenient branches and ATMs, but often have higher fees</li>
+          <li><strong>Second-Chance Accounts:</strong> Designed for people denied by regular banks — offered by many credit unions and some banks like Chime and GoBank</li>
+        </ul>
+        <div class="tip-box"><strong>Tip:</strong> If you've been denied a bank account, search for "second chance checking accounts" in your area. Many credit unions offer them with no ChexSystems check.</div>
+      </div>
+      <div class="content-card">
+        <h3>⚠️ Avoiding Hidden Bank Fees</h3>
+        <p>Banks charge fees for things people often don't realize — and those fees can cost hundreds of dollars per year. Know what to watch for.</p>
+        <ul>
+          <li><strong>Monthly maintenance fees:</strong> Often $10–$15/month — look for accounts that waive this with direct deposit</li>
+          <li><strong>Overdraft fees:</strong> Typically $25–$35 per transaction — opt out of overdraft "protection" or set up alerts</li>
+          <li><strong>Out-of-network ATM fees:</strong> $3–$5 per withdrawal — use your bank's ATMs or get cash back at grocery stores</li>
+          <li><strong>Minimum balance fees:</strong> Charged if your balance drops below a threshold — look for accounts with no minimum</li>
+        </ul>
+      </div>
+      <div class="content-card">
+        <h3>💸 Checking vs. Savings Accounts</h3>
+        <p>These two account types serve different purposes — and using them correctly is the first step to managing money well.</p>
+        <ul>
+          <li><strong>Checking account:</strong> For daily spending — bills, groceries, gas. Money flows in and out frequently</li>
+          <li><strong>Savings account:</strong> For money you're keeping — emergency fund, goals, reserves. Don't touch it unless necessary</li>
+          <li>Keep your savings at a different bank than your checking — makes it harder to spend impulsively</li>
+          <li>High-yield savings accounts (online banks like Marcus, Ally) pay 4–5% interest vs. 0.01% at most big banks</li>
+        </ul>
+        <div class="tip-box"><strong>Simple Rule:</strong> Every paycheck, move a set amount to savings immediately. Pay yourself first before any other expense.</div>
+      </div>
+      <div class="content-card">
+        <h3>🔄 Setting Up Direct Deposit & Automation</h3>
+        <p>Automating your finances is one of the most powerful things you can do. It removes willpower from the equation and makes saving effortless.</p>
+        <ul>
+          <li>Set up direct deposit with your employer so your paycheck goes straight to your bank</li>
+          <li>Schedule automatic transfers to savings on payday — even $50/paycheck adds up to $1,300/year</li>
+          <li>Set up autopay for fixed bills to avoid late fees and missed payments</li>
+          <li>Set balance alerts so you know if your account is getting low</li>
+          <li>Review your accounts weekly — just 5 minutes to catch errors or unexpected charges</li>
+        </ul>
+      </div>
     </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <h3>Keep Learning</h3>
-      <p>Every class comes with a follow-up resource guide. Book a free 1-on-1 session with your instructor if you need extra support.</p>
+  </div>
+
+  <!-- DEBT -->
+  <div class="topic-panel" id="fin-debt">
+    <div class="content-grid">
+      <div class="content-card">
+        <h3>💳 Understanding Your Debt</h3>
+        <p>Before you can tackle debt, you need to see the full picture. Most people don't know exactly what they owe — and that uncertainty makes the problem feel bigger than it is.</p>
+        <ul>
+          <li>List every debt: creditor name, balance, interest rate, minimum payment</li>
+          <li><strong>Good debt vs. bad debt:</strong> Mortgages and student loans often have low rates and build assets. Credit card debt at 20–30% interest is almost always bad</li>
+          <li>High-interest debt costs you money every single day — paying it off is the best guaranteed "investment" you can make</li>
+          <li>Know the difference between secured debt (tied to an asset like a car) and unsecured debt (credit cards, medical bills)</li>
+        </ul>
+      </div>
+      <div class="content-card">
+        <h3>🎯 Two Proven Payoff Strategies</h3>
+        <p>There are two popular methods for paying off debt. Both work — the best one is the one you'll actually stick to.</p>
+        <ul>
+          <li><strong>Avalanche Method:</strong> Pay minimums on everything, then put all extra money toward the highest interest rate debt first. Saves the most money mathematically.</li>
+          <li><strong>Snowball Method:</strong> Pay minimums on everything, then put all extra money toward the smallest balance first. Builds motivation with quick wins.</li>
+          <li>Either way: never pay less than the minimum on any account</li>
+          <li>Even an extra $50/month on your highest-interest debt can save thousands over time</li>
+        </ul>
+        <div class="tip-box"><strong>Research Says:</strong> The Snowball method often leads to faster total payoff because people stay motivated — the psychology matters.</div>
+      </div>
+      <div class="content-card">
+        <h3>📞 Negotiating With Creditors</h3>
+        <p>If you're behind on debt, you have more power to negotiate than you think. Creditors often prefer to get something rather than nothing.</p>
+        <ul>
+          <li>Call and ask for a lower interest rate — especially if you've been a good customer. This works more often than people expect</li>
+          <li>If a debt is in collections, you may be able to settle for 40–60% of the original balance</li>
+          <li>Ask about hardship programs — many credit card companies have them and don't advertise it</li>
+          <li>Get any agreement in writing before you make a payment</li>
+          <li>Know your statute of limitations — old debt may be past the legal time to sue you</li>
+        </ul>
+      </div>
+      <div class="content-card">
+        <h3>🚫 Debt to Avoid at All Costs</h3>
+        <p>Some types of debt are so predatory that they can trap you in a cycle that's nearly impossible to escape. Know these before you use them.</p>
+        <ul>
+          <li><strong>Payday loans:</strong> Often 300–400% APR. A $300 loan can turn into $1,000+ in debt quickly</li>
+          <li><strong>Rent-to-own stores:</strong> You end up paying 2–3x the item's actual value</li>
+          <li><strong>Title loans:</strong> Use your car as collateral — you can lose your vehicle</li>
+          <li><strong>Buy-now-pay-later (BNPL):</strong> Easy to overspend, and missed payments hurt your credit</li>
+        </ul>
+        <div class="tip-box"><strong>Alternative:</strong> If you need emergency cash, try a credit union personal loan, a 0% intro credit card, or a local nonprofit emergency fund before using any of the above.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVESTING -->
+  <div class="topic-panel" id="fin-investing">
+    <div class="content-grid">
+      <div class="content-card">
+        <h3>📈 Why Investing Matters</h3>
+        <p>Keeping all your money in a savings account feels safe — but inflation (typically 3% per year) quietly reduces your purchasing power every year. Investing is how you grow wealth over time.</p>
+        <ul>
+          <li>The stock market has historically returned about 7–10% per year on average over long periods</li>
+          <li>Compound interest means your returns earn returns — a small amount invested early grows dramatically over decades</li>
+          <li><strong>$100/month invested for 30 years at 8% average return = $150,000+</strong></li>
+          <li>You don't need to be rich to invest. Many platforms let you start with $1</li>
+        </ul>
+        <div class="tip-box"><strong>First Step:</strong> Before investing, make sure you have your emergency fund and no high-interest debt. Those come first.</div>
+      </div>
+      <div class="content-card">
+        <h3>🗂️ Types of Investments Explained</h3>
+        <p>You don't need to understand every investment type — but knowing the basics protects you from bad decisions and scams.</p>
+        <ul>
+          <li><strong>Stocks:</strong> Ownership shares in a company. Higher potential return, higher risk. Best held long-term.</li>
+          <li><strong>Bonds:</strong> Loans to companies or governments. Lower return, lower risk. More stable.</li>
+          <li><strong>Index Funds:</strong> Automatically invest in hundreds of companies at once. Low fees, great for beginners. Warren Buffett recommends them.</li>
+          <li><strong>ETFs:</strong> Similar to index funds but trade like stocks. Very beginner-friendly.</li>
+          <li><strong>Real Estate:</strong> Can build wealth but requires significant capital and management.</li>
+        </ul>
+      </div>
+      <div class="content-card">
+        <h3>🏛️ Retirement Accounts (401k & IRA)</h3>
+        <p>Retirement accounts have major tax advantages that make them the best place to start investing for most people.</p>
+        <ul>
+          <li><strong>401(k):</strong> Employer-sponsored plan. Contributions are pre-tax. If your employer offers a match, contribute enough to get the full match — it's free money.</li>
+          <li><strong>Traditional IRA:</strong> Individual account. Contributions may be tax-deductible. Pay taxes when you withdraw in retirement.</li>
+          <li><strong>Roth IRA:</strong> Contributions are after-tax, but all growth and withdrawals are tax-free. Best if you expect to be in a higher tax bracket later.</li>
+          <li>2024 IRA contribution limit: $7,000/year ($8,000 if 50 or older)</li>
+        </ul>
+        <div class="tip-box"><strong>Start Here:</strong> Open a Roth IRA at Fidelity, Vanguard, or Schwab (all free) and invest in a Total Market Index Fund. That's it.</div>
+      </div>
+      <div class="content-card">
+        <h3>⚠️ Investment Scams to Watch Out For</h3>
+        <p>Financial scams target people who are new to investing. Knowing the warning signs protects you from losing everything.</p>
+        <ul>
+          <li><strong>Guaranteed returns:</strong> No legitimate investment can guarantee returns. If someone promises 20%+ guaranteed, it's a scam.</li>
+          <li><strong>Crypto "opportunities":</strong> Many are legitimate but the space is full of fraud. If someone on social media is pressuring you to invest, stop.</li>
+          <li><strong>Pyramid/MLM schemes:</strong> You make money recruiting others, not from real products or services</li>
+          <li><strong>Urgency tactics:</strong> "This offer expires tonight" is a red flag. Real investments don't disappear overnight.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
-<!-- ONLINE CLASSES -->
-<section id="classes">
-  <p class="label gold">Online Class Catalog</p>
-  <h2 class="section-h">All Classes — Live Online, Always Free</h2>
-  <p class="section-p">Every class below is taught live by a certified or licensed professional. Small groups mean you get real attention, not a recorded lecture. Choose a track to filter, or browse all.</p>
-  <div class="track-tabs">
-    <button class="track-tab active" onclick="filterClasses('all',this)">All Classes</button>
-    <button class="track-tab"        onclick="filterClasses('fin',this)">💰 Financial Literacy</button>
-    <button class="track-tab g"      onclick="filterClasses('ree',this)">🌱 Reentry &amp; Life Skills</button>
-  </div>
-  <div class="classes-grid" id="cgrid">
-    <div class="class-card show" data-t="fin">
-      <span class="cbadge fin">Financial Literacy</span>
-      <h3>Budgeting Foundations</h3>
-      <p>Master the basics of personal budgeting — tracking income, cutting unnecessary expenses, and setting realistic savings goals with a certified financial counselor.</p>
-      <div class="class-meta">
-        <span>💻 Live Online</span><span>🕐 2 hrs</span><span>📅 Weekly</span>
-      </div>
-      <button class="enroll-btn eb-gold" onclick="enrollClass('Budgeting Foundations')">Register Free →</button>
-    </div>
-    <div class="class-card show" data-t="fin">
-      <span class="cbadge fin">Financial Literacy</span>
-      <h3>Credit Repair &amp; Building</h3>
-      <p>A certified credit counselor guides you through reading your credit report, disputing errors, and building positive credit history from the ground up.</p>
-      <div class="class-meta">
-        <span>💻 Live Online</span><span>🕐 3 hrs</span><span>📅 Bi-Weekly</span>
-      </div>
-      <button class="enroll-btn eb-gold" onclick="enrollClass('Credit Repair & Building')">Register Free →</button>
-    </div>
-    <div class="class-card rc show" data-t="ree">
-      <span class="cbadge ree">Reentry &amp; Life Skills</span>
-      <h3>Reentry Financial Jumpstart</h3>
-      <p>Designed specifically for returning citizens — open a bank account, access second-chance credit, and get financially established after release. Led by a certified reentry financial counselor.</p>
-      <div class="class-meta">
-        <span>💻 Live Online</span><span>🕐 3 hrs</span><span>📅 Weekly</span>
-      </div>
-      <button class="enroll-btn eb-green" onclick="enrollClass('Reentry Financial Jumpstart')">Register Free →</button>
-    </div>
-    <div class="class-card rc show" data-t="ree">
-      <span class="cbadge ree">Reentry &amp; Life Skills</span>
-      <h3>Employment Readiness</h3>
-      <p>Resume writing, interview preparation, and your rights as an applicant with a record — taught by a certified employment coach with experience in fair-chance hiring.</p>
-      <div class="class-meta">
-        <span>💻 Live Online</span><span>🕐 4 hrs</span><span>📅 Bi-Weekly</span>
-      </div>
-      <button class="enroll-btn eb-green" onclick="enrollClass('Employment Readiness')">Register Free →</button>
-    </div>
-    <div class="class-card rc show" data-t="ree">
-      <span class="cbadge ree">Reentry &amp; Life Skills</span>
-      <h3>Housing Navigation</h3>
-      <p>A licensed social worker guides you through finding fair-chance housing, understanding tenant rights, and avoiding discrimination after incarceration.</p>
-      <div class="class-meta">
-        <span>💻 Live Online</span><span>🕐 2.5 hrs</span><span>📅 Weekly</span>
-      </div>
-      <button class="enroll-btn eb-green" onclick="enrollClass('Housing Navigation')">Register Free →</button>
-    </div>
-  </div>
-</section>
-<!-- CALENDAR -->
-<section id="calendar">
-  <p class="label light">Upcoming Class Schedule</p>
-  <h2 class="section-h">5 Classes Coming Up — Register Today</h2>
-  <p class="section-p">Click any highlighted date or event card to register. All sessions are live online — you'll receive a private video link by email before class starts.</p>
-  <div class="cal-layout">
-    <!-- Month grid -->
-    <div>
-      <div class="cal-grid-wrap">
-        <div class="cal-header">
-          <h3 id="calTitle"></h3>
-          <div class="cal-nav">
-            <button onclick="changeMonth(-1)">&#8249;</button>
-            <button onclick="changeMonth(1)">&#8250;</button>
-          </div>
-        </div>
-        <div class="cal-days-header">
-          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
-        </div>
-        <div class="cal-grid" id="calGrid"></div>
-      </div>
-    </div>
-    <!-- Upcoming list -->
-    <div>
-      <div class="upcoming">
-        <h4>Next 5 Upcoming Classes</h4>
-        <div id="eventList"></div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- REENTRY TRACK -->
+
+<!-- REENTRY RESOURCES -->
 <section id="reentry">
-  <div class="reentry-grid">
-    <div>
-      <p class="label green">Reentry &amp; Life Skills Track</p>
-      <h2 class="section-h">Rebuilding After Incarceration — Online, at Your Pace</h2>
-      <p class="section-p">Returning home after incarceration means facing housing barriers, employment hurdles, and financial invisibility — all at once. Our reentry track connects you with licensed professionals who understand these challenges firsthand.</p>
-      <p class="section-p">Every class in this track is led by a certified reentry specialist, licensed social worker, or legal professional — not general advisors. Real expertise for real obstacles.</p>
-      <a href="#classes" class="btn btn-green" onclick="filterClasses('ree');return false;">View Reentry Classes →</a>
+  <p class="label green">Reentry Resources</p>
+  <h2 class="section-h">Rebuilding After Incarceration — Step by Step</h2>
+  <p class="section-p">Returning home means navigating multiple systems at once. This section breaks down the most important areas — employment, housing, benefits, and legal rights — in plain, practical language.</p>
+
+  <div class="topic-tabs">
+    <button class="topic-tab g active" onclick="showTopic('ree','employment',this)">💼 Employment</button>
+    <button class="topic-tab g"        onclick="showTopic('ree','housing',this)">🏠 Housing</button>
+    <button class="topic-tab g"        onclick="showTopic('ree','benefits',this)">📋 Benefits & ID</button>
+    <button class="topic-tab g"        onclick="showTopic('ree','legal',this)">⚖️ Legal Rights</button>
+    <button class="topic-tab g"        onclick="showTopic('ree','financial',this)">💳 Financial Start</button>
+  </div>
+
+  <!-- EMPLOYMENT -->
+  <div class="topic-panel active" id="ree-employment">
+    <div class="content-grid">
+      <div class="content-card green-card">
+        <h3>📝 Building a Resume With a Record</h3>
+        <p>A gap in employment history does not have to stop you from getting a job. How you present yourself matters more than what happened in the past.</p>
+        <ul>
+          <li>List skills gained during incarceration — programs, certifications, vocational training, leadership roles</li>
+          <li>Use a functional resume format that highlights skills over chronological work history</li>
+          <li>Be honest on applications — most background checks will reveal your record. Lying is grounds for immediate termination</li>
+          <li>Include references: case managers, program instructors, chaplains, or anyone who can speak to your character</li>
+          <li>Keep your resume to one page. Clean, clear formatting matters more than length</li>
+        </ul>
+        <div class="tip-box"><strong>Free Help:</strong> America Works, Honest Jobs, and 70 Million Jobs are job boards specifically designed for people with records. Many offer free resume review.</div>
+      </div>
+      <div class="content-card green-card">
+        <h3>✅ Ban the Box & Fair Chance Laws</h3>
+        <p>Many states and cities have "ban the box" laws that restrict when and how employers can ask about criminal history. Know your rights before you apply.</p>
+        <ul>
+          <li>Ban the box laws require employers to remove the criminal history checkbox from initial job applications</li>
+          <li>Employers can only ask about your record later in the hiring process, after reviewing your qualifications</li>
+          <li>Some states go further — employers must do an individualized assessment before rejecting someone due to a record</li>
+          <li>Federal contractors and some federal employers are prohibited from asking about arrest records</li>
+          <li>If you feel you were unfairly denied due to your record, you can file a complaint with the EEOC</li>
+        </ul>
+        <div class="tip-box"><strong>Check Your State:</strong> Visit the National Employment Law Project (NELP) website for a complete list of states with ban the box laws and what they cover.</div>
+      </div>
+      <div class="content-card green-card">
+        <h3>🎯 Fair-Chance Employers</h3>
+        <p>Thousands of companies actively hire people with records — some by policy, others through specific programs. Targeting these employers dramatically improves your chances.</p>
+        <ul>
+          <li><strong>Major companies with fair-chance policies:</strong> Walmart, Home Depot, McDonald's, Starbucks, UPS, Amazon, Dave's Killer Bread Foundation partners</li>
+          <li>Look for companies that have signed the Fair Chance Business Pledge</li>
+          <li>Trades (electrician, plumber, HVAC, construction) often have more flexibility and strong earning potential</li>
+          <li>Gig work (Uber, DoorDash, TaskRabbit) can provide income while you search for permanent employment</li>
+          <li>Staffing agencies that specialize in reentry placements can get you working quickly</li>
+        </ul>
+      </div>
+      <div class="content-card green-card">
+        <h3>🗣️ Answering the Question in Interviews</h3>
+        <p>Most interviews with fair-chance employers will include a conversation about your record. Being prepared turns this into an opportunity rather than a barrier.</p>
+        <ul>
+          <li>Be brief, honest, and forward-looking. Don't over-explain or make excuses</li>
+          <li>Own what happened without dwelling on it: "I made a serious mistake and served my time. Here's what I've done since then..."</li>
+          <li>Immediately pivot to what you've learned, skills you've gained, and why you're a strong candidate</li>
+          <li>Bring documentation of any programs, certifications, or positive achievements during incarceration</li>
+          <li>Practice your answer out loud until it feels natural and confident</li>
+        </ul>
+        <div class="tip-box"><strong>Remember:</strong> The interviewer asking the question often just wants to see that you're self-aware, accountable, and focused on moving forward.</div>
+      </div>
     </div>
-    <div class="rentry-cards-list fade-in">
-      <div class="rc-card">
-        <div class="rc-icon">💼</div>
-        <div><h3>Certified Employment Coaches</h3><p>Resume building, interview prep, and fair-chance employer connections — taught by coaches with direct hiring experience.</p></div>
+  </div>
+
+  <!-- HOUSING -->
+  <div class="topic-panel" id="ree-housing">
+    <div class="content-grid">
+      <div class="content-card green-card">
+        <h3>🏠 Finding Housing With a Record</h3>
+        <p>Housing is one of the hardest barriers after release — but it's not impossible. Knowing where to look and what your rights are makes a significant difference.</p>
+        <ul>
+          <li><strong>Transitional housing:</strong> Short-term housing specifically for people returning from incarceration. Usually free or low-cost. Search your city + "reentry housing" or "transitional housing"</li>
+          <li><strong>Sober living homes:</strong> If substance issues were involved, sober living provides structure and community while you stabilize</li>
+          <li><strong>Rooming houses / single room occupancy (SRO):</strong> More flexible about records than apartment complexes</li>
+          <li>Private landlords are often more flexible than large property management companies</li>
+          <li>Look for landlords advertising on Facebook Marketplace and Craigslist — they often do their own screening</li>
+        </ul>
       </div>
-      <div class="rc-card">
-        <div class="rc-icon">🏠</div>
-        <div><h3>Licensed Social Workers</h3><p>Housing navigation, tenant rights, and transitional housing resources — guided by licensed professionals who know the system.</p></div>
+      <div class="content-card green-card">
+        <h3>⚖️ Your Rights as a Tenant</h3>
+        <p>Having a criminal record doesn't mean landlords can treat you however they want. Federal and local laws still protect you from certain types of discrimination.</p>
+        <ul>
+          <li>The Fair Housing Act prohibits discrimination based on race, color, national origin, religion, sex, disability, and familial status — and criminal history policies that disproportionately affect protected classes may violate it</li>
+          <li>HUD guidelines say blanket bans on renting to anyone with any conviction may be illegal</li>
+          <li>Landlords must apply their screening criteria consistently — they can't reject you for a record and rent to someone else with a similar one</li>
+          <li>You have the right to know why you were denied housing</li>
+          <li>If denied, ask for the reason in writing and consult a local legal aid organization</li>
+        </ul>
+        <div class="tip-box"><strong>Resource:</strong> Contact your local Legal Aid office — they provide free housing legal help and can advise on discrimination complaints.</div>
       </div>
-      <div class="rc-card">
-        <div class="rc-icon">⚖️</div>
-        <div><h3>Pro-Bono Legal Professionals</h3><p>Expungement eligibility, record sealing guidance, and legal rights — explained clearly by attorneys who donate their time to this community.</p></div>
+      <div class="content-card green-card">
+        <h3>🏛️ Public Housing & Section 8</h3>
+        <p>Public housing has restrictions for people with certain convictions — but it's not a blanket ban. Understanding the rules helps you know where you stand.</p>
+        <ul>
+          <li>Mandatory bans: sex offenders on lifetime registration and people convicted of methamphetamine production in federally assisted housing are banned by law</li>
+          <li>For most other convictions, housing authorities have discretion — some are more flexible than others</li>
+          <li>You can appeal a denial — always request an informal hearing if denied public housing</li>
+          <li>Some housing authorities have reformed their policies and now consider time since conviction, nature of offense, and evidence of rehabilitation</li>
+          <li>Section 8 vouchers can sometimes be used with private landlords who are more flexible</li>
+        </ul>
       </div>
-      <div class="rc-card">
-        <div class="rc-icon">💳</div>
-        <div><h3>Financial Reentry Counselors</h3><p>Second-chance banking, secured credit, and financial identity — all specific to the barriers returning citizens face.</p></div>
+      <div class="content-card green-card">
+        <h3>📋 Tips for Renting Successfully</h3>
+        <p>When you do find a housing opportunity, how you present yourself matters. These steps improve your chances significantly.</p>
+        <ul>
+          <li>Be upfront about your record before the landlord runs a background check — showing honesty builds trust</li>
+          <li>Bring a reference letter from a case manager, parole officer, pastor, or employer</li>
+          <li>Offer a larger security deposit if you can — it reduces the landlord's perceived risk</li>
+          <li>Bring proof of income (pay stubs, employment letter) and bank statements</li>
+          <li>Start with a 6-month lease if a landlord is hesitant — lower commitment for them to try you out</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENEFITS & ID -->
+  <div class="topic-panel" id="ree-benefits">
+    <div class="content-grid">
+      <div class="content-card green-card">
+        <h3>🪪 Getting Your ID Documents</h3>
+        <p>Without ID, almost nothing else is possible — no job, no bank account, no housing application. Getting your documents is priority one.</p>
+        <ul>
+          <li><strong>Birth Certificate:</strong> Order from the vital records office of the state where you were born. Costs $10–$30. Many reentry programs can help cover this.</li>
+          <li><strong>Social Security Card:</strong> Free from the Social Security Administration. Bring your birth certificate. Can apply at SSA.gov or in person.</li>
+          <li><strong>State ID / Driver's License:</strong> Bring birth certificate + SSA card to your DMV. Some states have reentry ID programs that expedite this for free.</li>
+          <li>Some facilities issue a state ID before release — check if yours does</li>
+          <li>Many nonprofits and reentry organizations can help pay for these documents if cost is a barrier</li>
+        </ul>
+        <div class="tip-box"><strong>Free Help:</strong> Many cities have "ID clinics" run by nonprofits that help people get all their documents in one place, often for free.</div>
+      </div>
+      <div class="content-card green-card">
+        <h3>🍎 Food Assistance (SNAP)</h3>
+        <p>SNAP (formerly food stamps) provides monthly funds loaded onto an EBT card for groceries. Eligibility rules for people with records vary by state.</p>
+        <ul>
+          <li>Most people with felony drug convictions can now access SNAP — many states have lifted the ban</li>
+          <li>Apply at your state's SNAP office or online as soon as you're released — processing can take 30 days</li>
+          <li>SNAP provides an average of $200–$300/month for a single adult depending on income</li>
+          <li>Benefits are based on income and household size — many returning citizens with no income qualify for the maximum</li>
+          <li>Food banks and pantries are available immediately, with no income check, while you wait for SNAP approval</li>
+        </ul>
+      </div>
+      <div class="content-card green-card">
+        <h3>🏥 Health Coverage (Medicaid)</h3>
+        <p>Medicaid provides free or very low-cost health coverage to people with low incomes. People released from incarceration often qualify — and access to healthcare is critical for stability.</p>
+        <ul>
+          <li>In states that expanded Medicaid, single adults earning less than ~$20,000/year typically qualify</li>
+          <li>Apply through your state's Medicaid office or Healthcare.gov immediately upon release</li>
+          <li>Medicaid covers doctor visits, prescriptions, mental health care, and substance use treatment</li>
+          <li>Some states have pre-release Medicaid enrollment programs — ask your case manager before release</li>
+          <li>Even without Medicaid, Federally Qualified Health Centers (FQHCs) provide sliding-scale care based on income</li>
+        </ul>
+        <div class="tip-box"><strong>Mental Health:</strong> Substance use and mental health treatment is covered by Medicaid. Getting support for these after release significantly reduces recidivism.</div>
+      </div>
+      <div class="content-card green-card">
+        <h3>📋 Other Benefits to Know</h3>
+        <p>Several other programs can provide critical support during the reentry period. Many people don't know they may qualify.</p>
+        <ul>
+          <li><strong>SSI/SSDI:</strong> If you have a disability, you may qualify for Supplemental Security Income. Applications can take time — start early.</li>
+          <li><strong>Pell Grants:</strong> Returning citizens can now access Pell Grants for college education — this was restored in 2023.</li>
+          <li><strong>Workforce Innovation grants:</strong> Many states offer job training funding for returning citizens. Ask your One-Stop Career Center.</li>
+          <li><strong>LIHEAP:</strong> Helps with utility bills — heating, cooling, electricity. Apply through your local Community Action Agency.</li>
+          <li><strong>WIC:</strong> If you have children under 5 or are pregnant, WIC provides food, formula, and nutrition support.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGAL RIGHTS -->
+  <div class="topic-panel" id="ree-legal">
+    <div class="content-grid">
+      <div class="content-card green-card">
+        <h3>⚖️ What Is Expungement?</h3>
+        <p>Expungement is the legal process of sealing or erasing a criminal record so it no longer shows up on most background checks. Eligibility varies significantly by state and offense type.</p>
+        <ul>
+          <li>An expunged record is generally not visible to employers, landlords, or the public</li>
+          <li>Most states allow expungement for first-time, nonviolent offenses after a waiting period</li>
+          <li>Some states now offer "clean slate" automatic expungement after a set period with no new offenses</li>
+          <li>Expungement does NOT erase the record for immigration purposes, professional licensing, or law enforcement</li>
+          <li>The process typically involves filing a petition with the court, paying a fee (often waivable), and a hearing</li>
+        </ul>
+        <div class="tip-box"><strong>Check Your Eligibility:</strong> Many legal aid organizations offer free expungement clinics. Search "[your city] expungement clinic" to find events near you.</div>
+      </div>
+      <div class="content-card green-card">
+        <h3>🗳️ Voting Rights</h3>
+        <p>Voting rights after a conviction depend entirely on your state. Many people don't know their rights have been restored — and eligible people aren't voting.</p>
+        <ul>
+          <li><strong>States that restore rights immediately upon release:</strong> California, Colorado, New York, and others</li>
+          <li><strong>States that restore after probation/parole:</strong> Most states fall in this category</li>
+          <li><strong>States with permanent disenfranchisement for some offenses:</strong> A few states permanently restrict voting for certain felonies</li>
+          <li>Maine and Vermont allow voting even while incarcerated</li>
+          <li>To register, visit Vote.gov or your state's Secretary of State website for your state's specific rules</li>
+        </ul>
+      </div>
+      <div class="content-card green-card">
+        <h3>🔫 Firearm Rights</h3>
+        <p>Federal law prohibits people convicted of felonies from possessing firearms. This is a serious area where you must know exactly where you stand — violations carry severe penalties.</p>
+        <ul>
+          <li>Federal law: anyone convicted of a felony is prohibited from owning or possessing firearms or ammunition</li>
+          <li>This applies even if your state has restored other civil rights</li>
+          <li>Some states allow restoration of firearm rights through a separate legal process, but federal law often still applies</li>
+          <li>Domestic violence misdemeanor convictions also carry a federal firearms ban</li>
+          <li>If you're unsure of your status, consult a criminal defense attorney before ever handling a firearm</li>
+        </ul>
+        <div class="tip-box"><strong>Important:</strong> Do not assume your rights have been restored without getting legal confirmation. The consequences of being wrong are severe.</div>
+      </div>
+      <div class="content-card green-card">
+        <h3>📞 Your Rights During Supervision</h3>
+        <p>If you're on parole or probation, you have specific rights and responsibilities. Knowing both protects you and helps you successfully complete supervision.</p>
+        <ul>
+          <li>You have the right to know the exact conditions of your supervision in writing</li>
+          <li>Parole/probation officers have the right to search you and your home — generally without a warrant — if your conditions allow it</li>
+          <li>You have the right to an attorney if you're facing a violation hearing</li>
+          <li>If you can't afford a modification or fee, request a hearing — courts cannot revoke supervision solely for inability to pay</li>
+          <li>Keep records of every meeting, payment, and communication with your officer</li>
+          <li>If you feel your rights are being violated, contact a public defender or legal aid immediately</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANCIAL REENTRY -->
+  <div class="topic-panel" id="ree-financial">
+    <div class="content-grid">
+      <div class="content-card green-card">
+        <h3>🏦 Opening a Bank Account After Release</h3>
+        <p>Many returning citizens are denied standard bank accounts due to past overdrafts or account issues (tracked by ChexSystems). Here's how to get banked anyway.</p>
+        <ul>
+          <li><strong>Second-chance checking accounts:</strong> Specifically designed for people with banking history issues. Look for them at local credit unions and banks like Chime, GoBank, and Wells Fargo (Clear Access Banking)</li>
+          <li><strong>Credit union accounts:</strong> Credit unions are often more flexible and mission-driven. Many offer accounts with no ChexSystems check</li>
+          <li><strong>Prepaid debit cards:</strong> Not ideal long-term but work for immediate needs — Walmart MoneyCard, Green Dot. Avoid high-fee options</li>
+          <li>Having a bank account is essential for direct deposit, building credit, and financial stability</li>
+        </ul>
+        <div class="tip-box"><strong>Ask Specifically:</strong> When calling a bank, ask "Do you offer second-chance checking?" rather than explaining your full situation — you'll get a cleaner answer.</div>
+      </div>
+      <div class="content-card green-card">
+        <h3>💳 Building Credit From Zero</h3>
+        <p>Many people leave incarceration with no credit history at all. Building credit takes patience — but starting the right way makes it much faster.</p>
+        <ul>
+          <li><strong>Secured credit card:</strong> You deposit $200–$300 as collateral. Use it for one small purchase per month and pay it off in full. Your score builds automatically.</li>
+          <li><strong>Credit-builder loan:</strong> Offered by many credit unions specifically to build credit. You make payments and receive the money at the end.</li>
+          <li><strong>Self (formerly Self Lender):</strong> An online credit-builder account that reports to all three bureaus — no credit check required</li>
+          <li>Pay every bill on time — even utilities. Some services (like Experian Boost) now let you report utility and phone payments to your credit file</li>
+        </ul>
+      </div>
+      <div class="content-card green-card">
+        <h3>💰 Emergency Financial Resources</h3>
+        <p>The first 30–90 days after release are financially the hardest. Knowing what emergency resources exist can bridge critical gaps.</p>
+        <ul>
+          <li><strong>211:</strong> Call or text 211 from any phone — connects you to local emergency assistance for rent, utilities, food, and more</li>
+          <li><strong>Community Action Agencies:</strong> Every county has one. They provide emergency financial help, utility assistance, and referrals</li>
+          <li><strong>Local churches and nonprofits:</strong> Many provide emergency funds, food, clothing, and transportation help with no strings attached</li>
+          <li><strong>Reentry program emergency funds:</strong> Many reentry organizations maintain small emergency funds for people actively working toward stability</li>
+          <li>Don't wait until you're in crisis to ask — reach out early</li>
+        </ul>
+      </div>
+      <div class="content-card green-card">
+        <h3>📊 Creating Your First Budget After Release</h3>
+        <p>Getting financially organized immediately after release — even with very little money — sets the foundation for everything else. Here's a simple starting framework.</p>
+        <ul>
+          <li>List every source of income: wages, benefits, family support</li>
+          <li>List every essential expense: housing, food, transportation, phone, supervision fees</li>
+          <li>Whatever is left is for savings first, then anything else</li>
+          <li>Even saving $5–$10/week builds a small buffer that prevents small problems from becoming crises</li>
+          <li>Use free apps like Mint or EveryDollar to track spending on your phone</li>
+        </ul>
+        <div class="tip-box"><strong>Priority Order:</strong> Housing → Food → Transportation → Phone → Supervision fees → Everything else. In that order. Every time.</div>
       </div>
     </div>
   </div>
 </section>
-<!-- GET STARTED -->
-<section id="getstarted">
-  <p class="label" style="color:rgba(255,255,255,0.5);justify-content:center">Take the First Step</p>
-  <h2 class="section-h" style="color:#fff;text-align:center;max-width:600px;margin:0 auto 1rem">Ready to Start? Every Class Is Free.</h2>
-  <p class="section-p" style="color:rgba(255,255,255,0.7);text-align:center;max-width:580px;margin:0 auto 2.25rem">Whether you're working on your finances or rebuilding after incarceration — you belong here. Register in under two minutes and join a live class this week.</p>
-  <div class="gs-btns">
-    <a href="#contact" class="btn-white">Register for a Class</a>
-    <a href="#calendar" class="btn-outline-w">View the Schedule</a>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="label light">About RiseUp Community</p>
+  <h2 class="section-h">Why We Built This</h2>
+  <p class="section-p">Too many people face financial and reentry challenges without access to clear, honest information. Expensive courses, confusing government websites, and judgment-filled environments create barriers to the knowledge people need most. We believe that information should be free, accessible, and human.</p>
+  <p class="section-p" style="color:rgba(255,255,255,0.65)">RiseUp Community was created to put clear, professional-grade information directly in the hands of people who need it — no sign-up, no fee, no judgment. Everything on this site is written in plain language and reviewed for accuracy.</p>
+  <div class="values-grid fade-in">
+    <div class="value-card">
+      <div class="value-icon">🔓</div>
+      <h3>Always Free</h3>
+      <p>Every piece of information on this site is and will always be completely free. No paywalls, no subscriptions, no upsells.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🗣️</div>
+      <h3>Plain Language</h3>
+      <p>Financial and legal topics are explained in the same way you'd explain them to a friend — no unnecessary jargon or complexity.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <h3>No Judgment</h3>
+      <p>Everyone starts somewhere. We believe every person deserves access to the knowledge that can help them build a stable, dignified life.</p>
+    </div>
   </div>
 </section>
-<!-- CONTACT / REGISTER -->
+
+<!-- CONTACT -->
 <section id="contact">
   <div class="contact-info">
-    <p class="label gold">Register or Contact Us</p>
-    <h2>Sign Up for a Free Online Class</h2>
-    <p>Fill out this form to register for any class or to speak with a specialist. All information is completely confidential. We'll send your video link before the class starts.</p>
+    <p class="label gold">Get in Touch</p>
+    <h2>Have a Question or Need Help Finding Resources?</h2>
+    <p>Send us a message and we'll do our best to connect you with the right information or local resources. All messages are completely confidential.</p>
     <div class="cinfo-items">
-      <div class="cinfo-item"><div class="cinfo-icon">📞</div><span>(800) 555-RISE — Mon–Fri, 8am–6pm EST</span></div>
-      <div class="cinfo-item"><div class="cinfo-icon">✉️</div><span>classes@riseupcommunity.org</span></div>
-      <div class="cinfo-item"><div class="cinfo-icon">💻</div><span>All classes held live online — any device</span></div>
+      <div class="cinfo-item"><div class="cinfo-icon">✉️</div><span>hello@riseupcommunity.org</span></div>
+      <div class="cinfo-item"><div class="cinfo-icon">📞</div><span>(800) 555-RISE — Mon–Fri, 9am–5pm EST</span></div>
       <div class="cinfo-item"><div class="cinfo-icon">🔒</div><span>100% confidential — your info is never shared</span></div>
+      <div class="cinfo-item"><div class="cinfo-icon">⏱️</div><span>We respond within 1–2 business days</span></div>
     </div>
   </div>
   <div class="contact-form">
-    <p class="label gold">Class Registration</p>
+    <p class="label gold">Send a Message</p>
     <div class="form-row">
       <div class="fg"><label>First Name</label><input id="fname" type="text" placeholder="First name"></div>
       <div class="fg"><label>Last Name</label><input id="lname" type="text" placeholder="Last name"></div>
     </div>
     <div class="fg"><label>Email Address</label><input id="email" type="email" placeholder="you@email.com"></div>
-    <div class="fg"><label>Phone (Optional)</label><input id="phone" type="tel" placeholder="(555) 000-0000"></div>
     <div class="fg">
-      <label>Class I Want to Attend</label>
-      <select id="classSelect">
-        <option value="">Select a class...</option>
-        <optgroup label="💰 Financial Literacy">
-          <option>Budgeting Foundations</option>
-          <option>Credit Repair &amp; Building</option>
-        </optgroup>
-        <optgroup label="🌱 Reentry &amp; Life Skills">
-          <option>Reentry Financial Jumpstart</option>
-          <option>Employment Readiness</option>
-          <option>Housing Navigation</option>
-        </optgroup>
-        <option>I'd like to speak with a specialist first</option>
+      <label>Topic</label>
+      <select id="topic">
+        <option value="">Select a topic...</option>
+        <option>Financial Literacy — Budgeting</option>
+        <option>Financial Literacy — Credit</option>
+        <option>Financial Literacy — Banking</option>
+        <option>Financial Literacy — Debt</option>
+        <option>Financial Literacy — Investing</option>
+        <option>Reentry — Employment</option>
+        <option>Reentry — Housing</option>
+        <option>Reentry — Benefits & ID</option>
+        <option>Reentry — Legal Rights</option>
+        <option>Reentry — Financial Start</option>
+        <option>Something else</option>
       </select>
     </div>
-    <div class="fg"><label>Anything you'd like us to know? (Optional)</label><textarea id="msg" placeholder="Feel free to share your situation or any questions..."></textarea></div>
-    <button class="form-submit" onclick="submitForm()">Register Now — It's Free &amp; Confidential</button>
+    <div class="fg"><label>Your Question or Message</label><textarea id="msg" placeholder="What can we help you with? The more detail you share, the better we can help."></textarea></div>
+    <button class="form-submit" onclick="submitForm()">Send Message</button>
   </div>
 </section>
+
 <!-- FOOTER -->
 <footer>
   <div>
     <span class="footer-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Rise<span>Up</span> Community</span>
-    <p>A nonprofit offering free, professionally led online classes in financial literacy and reentry life skills. Every person deserves dignity and a real path forward.</p>
+    <p>Free financial literacy and reentry education for everyone. No sign-up required. No judgment. Just the information you need to move forward.</p>
   </div>
   <div>
-    <h4>Financial Classes</h4>
+    <h4>Financial Literacy</h4>
     <ul>
-      <li><a href="#classes" onclick="filterClasses('fin');return false">Budgeting Foundations</a></li>
-      <li><a href="#classes" onclick="filterClasses('fin');return false">Credit Repair &amp; Building</a></li>
+      <li><a href="#financial" onclick="showTopic('fin','budgeting');scrollTo('financial')">Budgeting</a></li>
+      <li><a href="#financial" onclick="showTopic('fin','credit');scrollTo('financial')">Credit & Scores</a></li>
+      <li><a href="#financial" onclick="showTopic('fin','banking');scrollTo('financial')">Banking Basics</a></li>
+      <li><a href="#financial" onclick="showTopic('fin','debt');scrollTo('financial')">Debt Management</a></li>
+      <li><a href="#financial" onclick="showTopic('fin','investing');scrollTo('financial')">Investing</a></li>
     </ul>
   </div>
   <div>
-    <h4>Reentry Classes</h4>
+    <h4>Reentry Resources</h4>
     <ul>
-      <li><a href="#classes" onclick="filterClasses('ree');return false">Financial Jumpstart</a></li>
-      <li><a href="#classes" onclick="filterClasses('ree');return false">Employment Readiness</a></li>
-      <li><a href="#classes" onclick="filterClasses('ree');return false">Housing Navigation</a></li>
-    </ul>
-  </div>
-  <div>
-    <h4>Organization</h4>
-    <ul>
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="#calendar">Class Schedule</a></li>
-      <li><a href="#contact">Register</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-      <li><a href="#contact">Volunteer / Donate</a></li>
+      <li><a href="#reentry" onclick="showTopic('ree','employment');scrollTo('reentry')">Employment</a></li>
+      <li><a href="#reentry" onclick="showTopic('ree','housing');scrollTo('reentry')">Housing</a></li>
+      <li><a href="#reentry" onclick="showTopic('ree','benefits');scrollTo('reentry')">Benefits & ID</a></li>
+      <li><a href="#reentry" onclick="showTopic('ree','legal');scrollTo('reentry')">Legal Rights</a></li>
+      <li><a href="#reentry" onclick="showTopic('ree','financial');scrollTo('reentry')">Financial Start</a></li>
     </ul>
   </div>
 </footer>
@@ -504,175 +882,52 @@ footer ul a:hover{color:var(--gold)}
   <span>© 2026 RiseUp Community. All rights reserved. A registered 501(c)(3) nonprofit.</span>
   <span>Made with purpose for people who deserve better.</span>
 </div>
+
 <script>
-// ── UPCOMING EVENTS (5 fixed future dates from June 22 2026) ──
-const EVENTS = [
-  { date: new Date(2026,5,24), title:'Budgeting Foundations',       time:'6:00 PM EST', dur:'2 hrs', track:'fin', cls:'Budgeting Foundations' },
-  { date: new Date(2026,5,26), title:'Reentry Financial Jumpstart', time:'5:30 PM EST', dur:'3 hrs', track:'ree', cls:'Reentry Financial Jumpstart' },
-  { date: new Date(2026,6,1),  title:'Credit Repair & Building',    time:'7:00 PM EST', dur:'3 hrs', track:'fin', cls:'Credit Repair & Building' },
-  { date: new Date(2026,6,8),  title:'Employment Readiness',        time:'5:00 PM EST', dur:'4 hrs', track:'ree', cls:'Employment Readiness' },
-  { date: new Date(2026,6,10), title:'Debt-Free Living',            time:'6:30 PM EST', dur:'2.5 hrs', track:'fin', cls:'Debt-Free Living' },
-];
-const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-const DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-let curYear  = 2026;
-let curMonth = 5; // June = 5
-let selectedEvent = null;
-function eventDates() {
-  return EVENTS.map(e => `${e.date.getFullYear()}-${e.date.getMonth()}-${e.date.getDate()}`);
-}
-function renderCalendar() {
-  document.getElementById('calTitle').textContent = `${MONTHS[curMonth]} ${curYear}`;
-  const grid = document.getElementById('calGrid');
-  grid.innerHTML = '';
-  const today   = new Date(2026,5,22);
-  const first   = new Date(curYear, curMonth, 1);
-  const last    = new Date(curYear, curMonth+1, 0);
-  const startDay = first.getDay();
-  // prev month fill
-  const prevLast = new Date(curYear, curMonth, 0).getDate();
-  for(let i=startDay-1;i>=0;i--){
-    const d=document.createElement('div');
-    d.className='cal-day other-month';
-    d.textContent=prevLast-i;
-    grid.appendChild(d);
-  }
-  // current month
-  for(let day=1;day<=last.getDate();day++){
-    const d=document.createElement('div');
-    d.className='cal-day';
-    d.textContent=day;
-    const key=`${curYear}-${curMonth}-${day}`;
-    const isToday=(curYear===today.getFullYear()&&curMonth===today.getMonth()&&day===today.getDate());
-    if(isToday) d.classList.add('today');
-    const ev=EVENTS.find(e=>e.date.getFullYear()===curYear&&e.date.getMonth()===curMonth&&e.date.getDate()===day);
-    if(ev){
-      d.classList.add('has-class');
-      if(ev.track==='ree') d.classList.add('green-day');
-      d.title=ev.title;
-      d.addEventListener('click',()=>selectEvent(ev,d));
-    }
-    grid.appendChild(d);
-  }
-  // next month fill
-  const total=startDay+last.getDate();
-  const remaining=(7-total%7)%7;
-  for(let i=1;i<=remaining;i++){
-    const d=document.createElement('div');
-    d.className='cal-day other-month';
-    d.textContent=i;
-    grid.appendChild(d);
-  }
-}
-function changeMonth(dir){
-  curMonth+=dir;
-  if(curMonth>11){curMonth=0;curYear++}
-  if(curMonth<0){curMonth=11;curYear--}
-  renderCalendar();
-}
-function selectEvent(ev, calDayEl){
-  selectedEvent=ev;
-  // highlight calendar day
-  document.querySelectorAll('.cal-day.selected').forEach(d=>d.classList.remove('selected'));
-  if(calDayEl) calDayEl.classList.add('selected');
-  // highlight sidebar card
-  document.querySelectorAll('.event-card').forEach(c=>c.classList.remove('selected'));
-  const card=document.getElementById('ev-'+EVENTS.indexOf(ev));
-  if(card){card.classList.add('selected');card.scrollIntoView({behavior:'smooth',block:'nearest'})}
-}
-function renderEvents(){
-  const list=document.getElementById('eventList');
-  list.innerHTML='';
-  EVENTS.forEach((ev,i)=>{
-    const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-    const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const dateStr=`${days[ev.date.getDay()]}, ${months[ev.date.getMonth()]} ${ev.date.getDate()}, ${ev.date.getFullYear()}`;
-    const isGreen=ev.track==='ree';
-    const card=document.createElement('div');
-    card.className='event-card'+(isGreen?' green-ev':'');
-    card.id='ev-'+i;
-    card.innerHTML=`
-      <div class="ev-date">📅 ${dateStr}</div>
-      <div class="ev-title">${ev.title}</div>
-      <div class="ev-meta"><span>🕐 ${ev.time}</span><span>⏱ ${ev.dur}</span><span>💻 Live Online</span></div>
-      <button class="${isGreen?'ev-enroll green-e':'ev-enroll gold-e'}" onclick="enrollClass('${ev.cls}')">Register Free →</button>
-    `;
-    card.addEventListener('click',()=>{
-      // jump calendar to that month
-      curMonth=ev.date.getMonth(); curYear=ev.date.getFullYear();
-      renderCalendar();
-      // find the cal-day after render
-      setTimeout(()=>{
-        const allDays=[...document.querySelectorAll('.cal-day:not(.other-month)')];
-        const target=allDays.find(d=>parseInt(d.textContent)===ev.date.getDate());
-        selectEvent(ev,target);
-      },50);
-    });
-    list.appendChild(card);
-  });
-}
-// ── CLASS FILTER ──
-function filterClasses(type,btn){
-  if(btn){
-    document.querySelectorAll('.track-tab').forEach(t=>t.classList.remove('active'));
+function showTopic(section, topic, btn) {
+  // hide all panels in section
+  document.querySelectorAll(`#${section} .topic-panel`).forEach(p => p.classList.remove('active'));
+  // deactivate all tabs in section
+  if (btn) {
+    btn.closest('.topic-tabs').querySelectorAll('.topic-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
   }
-  document.querySelectorAll('.class-card').forEach(c=>{
-    c.classList.toggle('show', type==='all'||c.dataset.t===type);
-  });
-  // scroll to classes section if called from footer/reentry
-  if(!btn){
-    document.getElementById('classes').scrollIntoView({behavior:'smooth',block:'start'});
-    setTimeout(()=>{
-      document.querySelectorAll('.track-tab').forEach(t=>{
-        if((type==='fin'&&t.textContent.includes('Financial'))||(type==='ree'&&t.textContent.includes('Reentry'))){
-          t.classList.add('active');
-        } else { t.classList.remove('active'); }
-      });
-    },400);
-  }
+  // show selected panel
+  const panel = document.getElementById(`${section}-${topic}`);
+  if (panel) panel.classList.add('active');
 }
-// ── ENROLL → CONTACT FORM ──
-function enrollClass(name){
-  const sel=document.getElementById('classSelect');
-  if(sel){
-    for(let i=0;i<sel.options.length;i++){
-      if(sel.options[i].text===name||sel.options[i].text===name.replace(/&amp;/g,'&')){
-        sel.selectedIndex=i; break;
-      }
-    }
-  }
-  document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'});
+
+function scrollTo(id) {
+  setTimeout(() => document.getElementById(id)?.scrollIntoView({behavior:'smooth', block:'start'}), 50);
 }
-// ── FORM SUBMIT ──
-function submitForm(){
-  const fname=document.getElementById('fname').value.trim();
-  const email=document.getElementById('email').value.trim();
-  const cls=document.getElementById('classSelect').value;
-  if(!fname){alert('Please enter your first name.');return}
-  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return}
-  if(!cls){alert('Please select which class you want to attend.');return}
-  ['fname','lname','email','phone','msg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});
-  document.getElementById('classSelect').selectedIndex=0;
-  const t=document.getElementById('toast');
-  t.style.display='block';
-  setTimeout(()=>t.style.display='none',5000);
+
+function submitForm() {
+  const fname = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const msg   = document.getElementById('msg').value.trim();
+  if (!fname) { alert('Please enter your first name.'); return; }
+  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+  if (!msg) { alert('Please enter your message.'); return; }
+  ['fname','lname','email','msg'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+  document.getElementById('topic').selectedIndex = 0;
+  const t = document.getElementById('toast');
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 5000);
 }
-// ── SMOOTH NAV ──
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const target=document.querySelector(a.getAttribute('href'));
-    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+
+// Smooth nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
 });
-// ── FADE IN ──
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
-},{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-// ── INIT ──
-renderCalendar();
-renderEvents();
+
+// Fade in
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
