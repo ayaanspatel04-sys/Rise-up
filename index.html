@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RiseUp Community — Free Online Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1B2A;--gold:#C9933A;--gold-lt:#E8B96A;
+  --cream:#F5F0E8;--green:#2D6A4F;--green-lt:#3D8A68;
+  --gray:#E8EDF2;--text:#1A2535;--muted:#5A6A7E;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(13,27,42,0.97);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:72px;
+  border-bottom:1px solid rgba(201,147,58,0.25);
+}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;cursor:pointer}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:0.5rem 1.25rem;border-radius:4px;font-weight:600!important}
+.nav-cta:hover{background:var(--gold-lt)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(13,27,42,0.98);flex-direction:column;padding:1.5rem 5% 2rem;gap:1.25rem;z-index:99;border-bottom:1px solid rgba(201,147,58,0.2)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:1rem;font-weight:500;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.mobile-menu a:hover{color:var(--gold)}
+.mob-cta{background:var(--gold)!important;color:var(--navy)!important;padding:0.75rem 1.5rem!important;border-radius:4px;text-align:center;font-weight:600;margin-top:0.5rem;border:none}
+/* HERO */
+.hero{
+  min-height:100vh;margin-top:72px;
+  background:var(--navy);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:6rem 5% 5rem;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%,rgba(201,147,58,0.12) 0%,transparent 60%),
+             radial-gradient(ellipse at 10% 80%,rgba(45,106,79,0.15) 0%,transparent 50%);
+  pointer-events:none;
+}
+.hero-inner{max-width:720px;position:relative}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  background:rgba(201,147,58,0.15);border:1px solid rgba(201,147,58,0.3);
+  color:var(--gold-lt);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;padding:0.4rem 1rem;border-radius:20px;margin-bottom:1.75rem;
+}
+.hero-badge::before{content:'🎓'}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;
+  color:#fff;line-height:1.15;margin-bottom:1.5rem;
+}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{color:rgba(255,255,255,0.7);font-size:1.1rem;line-height:1.75;max-width:580px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 1.9rem;border-radius:5px;font-size:0.92rem;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,147,58,0.35)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35)}
+.btn-outline:hover{background:rgba(255,255,255,0.08);transform:translateY(-1px)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-lt);transform:translateY(-1px);box-shadow:0 6px 20px rgba(45,106,79,0.35)}
+/* SHARED */
+section{padding:6rem 5%}
+.label{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem}
+.label::before{content:'';display:block;width:28px;height:2px;background:currentColor}
+.label.gold{color:var(--gold)}.label.green{color:var(--green)}.label.light{color:var(--gold-lt)}
+.section-h{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:1.25rem;max-width:600px}
+.section-p{color:var(--muted);font-size:1rem;line-height:1.75;max-width:620px;margin-bottom:2rem}
+/* HOW IT WORKS */
+#how{background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
+.step{background:#fff;border-radius:12px;padding:2rem 1.75rem;border-top:4px solid var(--gold);transition:box-shadow 0.2s}
+.step:hover{box-shadow:0 8px 28px rgba(0,0,0,0.08)}
+.step-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);opacity:0.5;line-height:1;margin-bottom:0.9rem}
+.step h3{font-size:0.98rem;font-weight:600;color:var(--navy);margin-bottom:0.5rem}
+.step p{font-size:0.85rem;color:var(--muted);line-height:1.65}
+/* CLASSES */
+#classes{background:#fff}
+.track-tabs{display:flex;gap:0.75rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.track-tab{padding:0.55rem 1.4rem;border-radius:20px;border:1.5px solid var(--gold);background:transparent;color:var(--gold);font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}
+.track-tab:hover,.track-tab.active{background:var(--gold);color:var(--navy)}
+.track-tab.g{border-color:var(--green);color:var(--green)}
+.track-tab.g:hover,.track-tab.g.active{background:var(--green);color:#fff}
+.classes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.class-card{background:var(--cream);border-radius:12px;padding:1.75rem;border:1.5px solid transparent;transition:all 0.2s;display:none;flex-direction:column}
+.class-card.show{display:flex}
+.class-card:hover{border-color:var(--gold);box-shadow:0 6px 24px rgba(0,0,0,0.07);transform:translateY(-2px)}
+.class-card.rc:hover{border-color:var(--green)}
+.cbadge{display:inline-block;font-size:0.67rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:20px;margin-bottom:1rem}
+.cbadge.fin{background:rgba(201,147,58,0.12);color:var(--gold)}
+.cbadge.ree{background:rgba(45,106,79,0.1);color:var(--green)}
+.class-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:0.5rem}
+.class-card p{font-size:0.85rem;color:var(--muted);line-height:1.65;flex:1}
+.class-meta{display:flex;gap:0.9rem;flex-wrap:wrap;font-size:0.76rem;color:var(--muted);border-top:1px solid #ddd;padding-top:0.9rem;margin-top:1rem}
+.class-meta span{display:flex;align-items:center;gap:0.3rem}
+.enroll-btn{display:inline-block;margin-top:1rem;padding:0.55rem 1.2rem;border-radius:4px;font-size:0.82rem;font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all 0.2s;text-align:center}
+.eb-gold{background:var(--gold);color:var(--navy)}.eb-gold:hover{background:var(--gold-lt)}
+.eb-green{background:var(--green);color:#fff}.eb-green:hover{background:var(--green-lt)}
+/* CALENDAR */
+#calendar{background:var(--navy)}
+#calendar .section-h{color:#fff;max-width:100%}
+#calendar .section-p{color:rgba(255,255,255,0.6)}
+.cal-layout{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start;margin-top:3rem}
+/* Month grid */
+.cal-grid-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden}
+.cal-header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+.cal-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;font-weight:600}
+.cal-nav{display:flex;gap:0.5rem}
+.cal-nav button{background:rgba(255,255,255,0.08);border:none;color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:1rem;transition:background 0.2s;display:flex;align-items:center;justify-content:center}
+.cal-nav button:hover{background:rgba(201,147,58,0.3)}
+.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;padding:0.75rem 0.5rem 0.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.cal-days-header span{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.35);text-transform:uppercase}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:0.75rem}
+.cal-day{
+  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+  border-radius:8px;font-size:0.82rem;font-weight:500;
+  color:rgba(255,255,255,0.4);cursor:default;transition:all 0.15s;
+}
+.cal-day.other-month{color:rgba(255,255,255,0.12)}
+.cal-day.today{background:rgba(255,255,255,0.1);color:#fff;font-weight:700}
+.cal-day.has-class{
+  background:rgba(201,147,58,0.18);color:var(--gold-lt);
+  cursor:pointer;font-weight:600;position:relative;
+}
+.cal-day.has-class::after{
+  content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);
+  width:4px;height:4px;border-radius:50%;background:var(--gold);
+}
+.cal-day.has-class.green-day{background:rgba(45,106,79,0.25);color:#8eded8}
+.cal-day.has-class.green-day::after{background:var(--green-lt)}
+.cal-day.has-class:hover{transform:scale(1.12);box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.cal-day.selected{outline:2px solid var(--gold);outline-offset:1px}
+.cal-day.selected.green-day{outline-color:var(--green-lt)}
+/* Upcoming sidebar */
+.upcoming{display:flex;flex-direction:column;gap:1rem}
+.upcoming h4{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.25rem}
+.event-card{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:1.1rem 1.25rem;
+  cursor:pointer;transition:all 0.2s;
+  border-left:3px solid var(--gold);
+}
+.event-card.green-ev{border-left-color:var(--green-lt)}
+.event-card:hover{background:rgba(255,255,255,0.09);transform:translateX(3px)}
+.event-card.selected{background:rgba(201,147,58,0.12);border-color:var(--gold)}
+.event-card.green-ev.selected{background:rgba(45,106,79,0.18);border-color:var(--green-lt)}
+.ev-date{font-size:0.72rem;font-weight:600;letter-spacing:0.06em;color:var(--gold-lt);margin-bottom:0.3rem}
+.event-card.green-ev .ev-date{color:#8eded8}
+.ev-title{font-size:0.92rem;font-weight:600;color:#fff;margin-bottom:0.2rem}
+.ev-meta{font-size:0.78rem;color:rgba(255,255,255,0.45);display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.75rem}
+.ev-enroll{display:inline-block;padding:0.4rem 1rem;border-radius:4px;font-size:0.78rem;font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all 0.2s;text-decoration:none}
+.ev-enroll.gold-e{background:var(--gold);color:var(--navy)}.ev-enroll.gold-e:hover{background:var(--gold-lt)}
+.ev-enroll.green-e{background:var(--green);color:#fff}.ev-enroll.green-e:hover{background:var(--green-lt)}
+/* REENTRY TRACK */
+#reentry{background:var(--cream)}
+.reentry-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.rentry-cards-list{display:flex;flex-direction:column;gap:1rem}
+.rc-card{background:#fff;border-radius:10px;padding:1.4rem 1.6rem;display:flex;gap:1.1rem;align-items:flex-start;border:1px solid var(--gray);transition:box-shadow 0.2s}
+.rc-card:hover{box-shadow:0 6px 20px rgba(0,0,0,0.07)}
+.rc-icon{width:42px;height:42px;border-radius:8px;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
+.rc-card h3{font-size:0.94rem;font-weight:600;color:var(--navy);margin-bottom:0.25rem}
+.rc-card p{font-size:0.83rem;color:var(--muted);line-height:1.6}
+/* GET STARTED */
+#getstarted{background:var(--green);text-align:center;padding:5rem 5%}
+#getstarted .section-h{color:#fff;margin:0 auto 1rem;text-align:center}
+#getstarted .section-p{color:rgba(255,255,255,0.7);text-align:center;margin:0 auto 2.25rem}
+.gs-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--green);padding:0.9rem 1.9rem;border-radius:5px;font-size:0.92rem;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+.btn-white:hover{background:var(--cream);transform:translateY(-1px)}
+.btn-outline-w{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4);padding:0.9rem 1.9rem;border-radius:5px;font-size:0.92rem;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border-radius:5px;font-family:'Inter',sans-serif}
+.btn-outline-w:hover{background:rgba(255,255,255,0.1)}
+/* CONTACT */
+#contact{background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;padding:6rem 5%}
+.contact-info h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.1rem);color:var(--navy);margin-bottom:1rem}
+.contact-info p{color:var(--muted);font-size:0.98rem;line-height:1.75;margin-bottom:1.75rem}
+.cinfo-items{display:flex;flex-direction:column;gap:0.9rem}
+.cinfo-item{display:flex;align-items:center;gap:0.9rem}
+.cinfo-icon{width:38px;height:38px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0}
+.cinfo-item span{font-size:0.9rem;color:var(--text);font-weight:500}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:0.35rem}
+.fg label{font-size:0.8rem;font-weight:600;color:var(--navy)}
+.fg input,.fg select,.fg textarea{padding:0.72rem 1rem;border:1.5px solid #D4D9E0;border-radius:6px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--text);background:#fff;transition:border-color 0.2s;outline:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg textarea{resize:vertical;min-height:100px}
+.form-submit{background:var(--gold);color:var(--navy);border:none;padding:0.9rem 2rem;border-radius:4px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;align-self:flex-start}
+.form-submit:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 5px 16px rgba(201,147,58,0.3)}
+/* TOAST */
+.toast{display:none;position:fixed;bottom:2rem;right:2rem;background:var(--green);color:#fff;padding:1rem 1.5rem;border-radius:8px;font-size:0.9rem;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:200}
+/* FOOTER */
+footer{background:#060F19;color:rgba(255,255,255,0.45);padding:3rem 5%;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;display:block;margin-bottom:0.75rem;cursor:pointer}
+.footer-logo span{color:var(--gold)}
+footer p{font-size:0.85rem;line-height:1.7;max-width:260px}
+footer h4{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:1rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+footer ul a{color:rgba(255,255,255,0.38);text-decoration:none;font-size:0.875rem;transition:color 0.2s}
+footer ul a:hover{color:var(--gold)}
+.footer-bottom{background:#060F19;border-top:1px solid rgba(255,255,255,0.07);padding:1.25rem 5%;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:rgba(255,255,255,0.22)}
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(22px);transition:opacity 0.6s,transform 0.6s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .cal-layout{grid-template-columns:1fr}
+  .reentry-grid{grid-template-columns:1fr;gap:2.5rem}
+  #contact{grid-template-columns:1fr;gap:3rem}
+  .steps{grid-template-columns:1fr 1fr}
+  footer{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+}
+@media(max-width:700px){
+  .classes-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:0.5rem;text-align:center}
+  .hero h1{font-size:2rem}
+}
+</style>
+</head>
+<body>
+<div class="toast" id="toast">✅ You're registered! Check your email for the class link.</div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Rise<span>Up</span> Community</div>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#classes">Online Classes</a></li>
+    <li><a href="#calendar">Class Schedule</a></li>
+    <li><a href="#reentry">Second Chances</a></li>
+    <li><a href="#contact" class="nav-cta">Register Free</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hbg" onclick="document.getElementById('mmenu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mmenu">
+  <a href="#how"      onclick="this.closest('.mobile-menu').classList.remove('open')">How It Works</a>
+  <a href="#classes"  onclick="this.closest('.mobile-menu').classList.remove('open')">Online Classes</a>
+  <a href="#calendar" onclick="this.closest('.mobile-menu').classList.remove('open')">Class Schedule</a>
+  <a href="#reentry"  onclick="this.closest('.mobile-menu').classList.remove('open')">Second Chances</a>
+  <a href="#contact"  onclick="this.closest('.mobile-menu').classList.remove('open')" class="mob-cta">Register Free</a>
+</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Free Online Classes — Live &amp; Interactive</div>
+    <h1>Learn from <em>Certified Professionals.</em><br>Change Your Life Online.</h1>
+    <p>RiseUp Community offers free, live online classes in financial literacy and reentry life skills — taught by certified counselors, licensed social workers, and employment professionals who are here for you.</p>
+    <div class="hero-btns">
+      <a href="#classes"  class="btn btn-gold">Browse Classes →</a>
+      <a href="#calendar" class="btn btn-outline">View Upcoming Dates</a>
+    </div>
+  </div>
+</section>
+<!-- HOW IT WORKS -->
+<section id="how">
+  <p class="label gold">How It Works</p>
+  <h2 class="section-h">Simple. Free. Online.</h2>
+  <p class="section-p">All classes are held live over video — no downloads, no subscriptions, no fees. Here's all it takes to get started.</p>
+  <div class="steps fade-in">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Register Free</h3>
+      <p>Fill out the short form below with your name, email, and which class you want. That's it — no income requirements, no background check.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Get Your Link</h3>
+      <p>We email you a private video link before your class starts. Works on any phone, tablet, or computer — no app needed.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Attend Live</h3>
+      <p>Join your class live with a certified professional instructor. Ask questions, get real answers, and interact with a small group of peers.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Keep Learning</h3>
+      <p>Every class comes with a follow-up resource guide. Book a free 1-on-1 session with your instructor if you need extra support.</p>
+    </div>
+  </div>
+</section>
+<!-- ONLINE CLASSES -->
+<section id="classes">
+  <p class="label gold">Online Class Catalog</p>
+  <h2 class="section-h">All Classes — Live Online, Always Free</h2>
+  <p class="section-p">Every class below is taught live by a certified or licensed professional. Small groups mean you get real attention, not a recorded lecture. Choose a track to filter, or browse all.</p>
+  <div class="track-tabs">
+    <button class="track-tab active" onclick="filterClasses('all',this)">All Classes</button>
+    <button class="track-tab"        onclick="filterClasses('fin',this)">💰 Financial Literacy</button>
+    <button class="track-tab g"      onclick="filterClasses('ree',this)">🌱 Reentry &amp; Life Skills</button>
+  </div>
+  <div class="classes-grid" id="cgrid">
+    <div class="class-card show" data-t="fin">
+      <span class="cbadge fin">Financial Literacy</span>
+      <h3>Budgeting Foundations</h3>
+      <p>Master the basics of personal budgeting — tracking income, cutting unnecessary expenses, and setting realistic savings goals with a certified financial counselor.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 2 hrs</span><span>📅 Weekly</span>
+      </div>
+      <button class="enroll-btn eb-gold" onclick="enrollClass('Budgeting Foundations')">Register Free →</button>
+    </div>
+    <div class="class-card show" data-t="fin">
+      <span class="cbadge fin">Financial Literacy</span>
+      <h3>Credit Repair &amp; Building</h3>
+      <p>A certified credit counselor guides you through reading your credit report, disputing errors, and building positive credit history from the ground up.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 3 hrs</span><span>📅 Bi-Weekly</span>
+      </div>
+      <button class="enroll-btn eb-gold" onclick="enrollClass('Credit Repair & Building')">Register Free →</button>
+    </div>
+    <div class="class-card show" data-t="fin">
+      <span class="cbadge fin">Financial Literacy</span>
+      <h3>Debt-Free Living</h3>
+      <p>A financial counselor walks you through payoff strategies, debt negotiation, and creating a real plan to become debt-free — without shame or judgment.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 2.5 hrs</span><span>📅 Monthly</span>
+      </div>
+      <button class="enroll-btn eb-gold" onclick="enrollClass('Debt-Free Living')">Register Free →</button>
+    </div>
+    <div class="class-card show" data-t="fin">
+      <span class="cbadge fin">Financial Literacy</span>
+      <h3>Banking for Beginners</h3>
+      <p>How to open an account, choose the right bank or credit union, avoid hidden fees, and set up automatic savings. Taught by a consumer finance professional.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 1.5 hrs</span><span>📅 Weekly</span>
+      </div>
+      <button class="enroll-btn eb-gold" onclick="enrollClass('Banking for Beginners')">Register Free →</button>
+    </div>
+    <div class="class-card show" data-t="fin">
+      <span class="cbadge fin">Financial Literacy</span>
+      <h3>Introduction to Investing</h3>
+      <p>Stocks, index funds, retirement accounts — explained in plain language. A financial professional demystifies investing so you can make informed decisions starting today.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 3 hrs</span><span>📅 Monthly</span>
+      </div>
+      <button class="enroll-btn eb-gold" onclick="enrollClass('Introduction to Investing')">Register Free →</button>
+    </div>
+    <div class="class-card show" data-t="fin">
+      <span class="cbadge fin">Financial Literacy</span>
+      <h3>Road to Home Ownership</h3>
+      <p>A housing finance specialist walks you from renting to qualifying for a mortgage — including down payment assistance programs available to first-time buyers.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 4 hrs</span><span>📅 Monthly</span>
+      </div>
+      <button class="enroll-btn eb-gold" onclick="enrollClass('Road to Home Ownership')">Register Free →</button>
+    </div>
+    <div class="class-card rc show" data-t="ree">
+      <span class="cbadge ree">Reentry &amp; Life Skills</span>
+      <h3>Reentry Financial Jumpstart</h3>
+      <p>Designed specifically for returning citizens — open a bank account, access second-chance credit, and get financially established after release. Led by a certified reentry financial counselor.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 3 hrs</span><span>📅 Weekly</span>
+      </div>
+      <button class="enroll-btn eb-green" onclick="enrollClass('Reentry Financial Jumpstart')">Register Free →</button>
+    </div>
+    <div class="class-card rc show" data-t="ree">
+      <span class="cbadge ree">Reentry &amp; Life Skills</span>
+      <h3>Employment Readiness</h3>
+      <p>Resume writing, interview preparation, and your rights as an applicant with a record — taught by a certified employment coach with experience in fair-chance hiring.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 4 hrs</span><span>📅 Bi-Weekly</span>
+      </div>
+      <button class="enroll-btn eb-green" onclick="enrollClass('Employment Readiness')">Register Free →</button>
+    </div>
+    <div class="class-card rc show" data-t="ree">
+      <span class="cbadge ree">Reentry &amp; Life Skills</span>
+      <h3>Housing Navigation</h3>
+      <p>A licensed social worker guides you through finding fair-chance housing, understanding tenant rights, and avoiding discrimination after incarceration.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 2.5 hrs</span><span>📅 Weekly</span>
+      </div>
+      <button class="enroll-btn eb-green" onclick="enrollClass('Housing Navigation')">Register Free →</button>
+    </div>
+    <div class="class-card rc show" data-t="ree">
+      <span class="cbadge ree">Reentry &amp; Life Skills</span>
+      <h3>Benefits &amp; Identity Documents</h3>
+      <p>Step-by-step help with obtaining ID, Social Security cards, and benefits enrollment — guided by a reentry specialist who knows these systems inside and out.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 2 hrs</span><span>📅 Weekly</span>
+      </div>
+      <button class="enroll-btn eb-green" onclick="enrollClass('Benefits & Identity Documents')">Register Free →</button>
+    </div>
+    <div class="class-card rc show" data-t="ree">
+      <span class="cbadge ree">Reentry &amp; Life Skills</span>
+      <h3>Expungement &amp; Legal Rights</h3>
+      <p>Taught by a pro-bono legal professional — understand whether your record may qualify for expungement or sealing, and what steps to take next.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 3 hrs</span><span>📅 Monthly</span>
+      </div>
+      <button class="enroll-btn eb-green" onclick="enrollClass('Expungement & Legal Rights')">Register Free →</button>
+    </div>
+    <div class="class-card rc show" data-t="ree">
+      <span class="cbadge ree">Reentry &amp; Life Skills</span>
+      <h3>Peer Mentorship Orientation</h3>
+      <p>Get matched with a trained peer mentor who has walked this road. This live orientation, led by a certified mentor coordinator, starts you on that journey.</p>
+      <div class="class-meta">
+        <span>💻 Live Online</span><span>🕐 1.5 hrs</span><span>📅 Ongoing</span>
+      </div>
+      <button class="enroll-btn eb-green" onclick="enrollClass('Peer Mentorship Orientation')">Register Free →</button>
+    </div>
+  </div>
+</section>
+<!-- CALENDAR -->
+<section id="calendar">
+  <p class="label light">Upcoming Class Schedule</p>
+  <h2 class="section-h">5 Classes Coming Up — Register Today</h2>
+  <p class="section-p">Click any highlighted date or event card to register. All sessions are live online — you'll receive a private video link by email before class starts.</p>
+  <div class="cal-layout">
+    <!-- Month grid -->
+    <div>
+      <div class="cal-grid-wrap">
+        <div class="cal-header">
+          <h3 id="calTitle"></h3>
+          <div class="cal-nav">
+            <button onclick="changeMonth(-1)">&#8249;</button>
+            <button onclick="changeMonth(1)">&#8250;</button>
+          </div>
+        </div>
+        <div class="cal-days-header">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+    </div>
+    <!-- Upcoming list -->
+    <div>
+      <div class="upcoming">
+        <h4>Next 5 Upcoming Classes</h4>
+        <div id="eventList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- REENTRY TRACK -->
+<section id="reentry">
+  <div class="reentry-grid">
+    <div>
+      <p class="label green">Reentry &amp; Life Skills Track</p>
+      <h2 class="section-h">Rebuilding After Incarceration — Online, at Your Pace</h2>
+      <p class="section-p">Returning home after incarceration means facing housing barriers, employment hurdles, and financial invisibility — all at once. Our reentry track connects you with licensed professionals who understand these challenges firsthand.</p>
+      <p class="section-p">Every class in this track is led by a certified reentry specialist, licensed social worker, or legal professional — not general advisors. Real expertise for real obstacles.</p>
+      <a href="#classes" class="btn btn-green" onclick="filterClasses('ree');return false;">View Reentry Classes →</a>
+    </div>
+    <div class="rentry-cards-list fade-in">
+      <div class="rc-card">
+        <div class="rc-icon">💼</div>
+        <div><h3>Certified Employment Coaches</h3><p>Resume building, interview prep, and fair-chance employer connections — taught by coaches with direct hiring experience.</p></div>
+      </div>
+      <div class="rc-card">
+        <div class="rc-icon">🏠</div>
+        <div><h3>Licensed Social Workers</h3><p>Housing navigation, tenant rights, and transitional housing resources — guided by licensed professionals who know the system.</p></div>
+      </div>
+      <div class="rc-card">
+        <div class="rc-icon">⚖️</div>
+        <div><h3>Pro-Bono Legal Professionals</h3><p>Expungement eligibility, record sealing guidance, and legal rights — explained clearly by attorneys who donate their time to this community.</p></div>
+      </div>
+      <div class="rc-card">
+        <div class="rc-icon">💳</div>
+        <div><h3>Financial Reentry Counselors</h3><p>Second-chance banking, secured credit, and financial identity — all specific to the barriers returning citizens face.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- GET STARTED -->
+<section id="getstarted">
+  <p class="label" style="color:rgba(255,255,255,0.5);justify-content:center">Take the First Step</p>
+  <h2 class="section-h" style="color:#fff;text-align:center;max-width:600px;margin:0 auto 1rem">Ready to Start? Every Class Is Free.</h2>
+  <p class="section-p" style="color:rgba(255,255,255,0.7);text-align:center;max-width:580px;margin:0 auto 2.25rem">Whether you're working on your finances or rebuilding after incarceration — you belong here. Register in under two minutes and join a live class this week.</p>
+  <div class="gs-btns">
+    <a href="#contact" class="btn-white">Register for a Class</a>
+    <a href="#calendar" class="btn-outline-w">View the Schedule</a>
+  </div>
+</section>
+<!-- CONTACT / REGISTER -->
+<section id="contact">
+  <div class="contact-info">
+    <p class="label gold">Register or Contact Us</p>
+    <h2>Sign Up for a Free Online Class</h2>
+    <p>Fill out this form to register for any class or to speak with a specialist. All information is completely confidential. We'll send your video link before the class starts.</p>
+    <div class="cinfo-items">
+      <div class="cinfo-item"><div class="cinfo-icon">📞</div><span>(800) 555-RISE — Mon–Fri, 8am–6pm EST</span></div>
+      <div class="cinfo-item"><div class="cinfo-icon">✉️</div><span>classes@riseupcommunity.org</span></div>
+      <div class="cinfo-item"><div class="cinfo-icon">💻</div><span>All classes held live online — any device</span></div>
+      <div class="cinfo-item"><div class="cinfo-icon">🔒</div><span>100% confidential — your info is never shared</span></div>
+    </div>
+  </div>
+  <div class="contact-form">
+    <p class="label gold">Class Registration</p>
+    <div class="form-row">
+      <div class="fg"><label>First Name</label><input id="fname" type="text" placeholder="First name"></div>
+      <div class="fg"><label>Last Name</label><input id="lname" type="text" placeholder="Last name"></div>
+    </div>
+    <div class="fg"><label>Email Address</label><input id="email" type="email" placeholder="you@email.com"></div>
+    <div class="fg"><label>Phone (Optional)</label><input id="phone" type="tel" placeholder="(555) 000-0000"></div>
+    <div class="fg">
+      <label>Class I Want to Attend</label>
+      <select id="classSelect">
+        <option value="">Select a class...</option>
+        <optgroup label="💰 Financial Literacy">
+          <option>Budgeting Foundations</option>
+          <option>Credit Repair &amp; Building</option>
+          <option>Debt-Free Living</option>
+          <option>Banking for Beginners</option>
+          <option>Introduction to Investing</option>
+          <option>Road to Home Ownership</option>
+        </optgroup>
+        <optgroup label="🌱 Reentry &amp; Life Skills">
+          <option>Reentry Financial Jumpstart</option>
+          <option>Employment Readiness</option>
+          <option>Housing Navigation</option>
+          <option>Benefits &amp; Identity Documents</option>
+          <option>Expungement &amp; Legal Rights</option>
+          <option>Peer Mentorship Orientation</option>
+        </optgroup>
+        <option>I'd like to speak with a specialist first</option>
+      </select>
+    </div>
+    <div class="fg"><label>Anything you'd like us to know? (Optional)</label><textarea id="msg" placeholder="Feel free to share your situation or any questions..."></textarea></div>
+    <button class="form-submit" onclick="submitForm()">Register Now — It's Free &amp; Confidential</button>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div>
+    <span class="footer-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Rise<span>Up</span> Community</span>
+    <p>A nonprofit offering free, professionally led online classes in financial literacy and reentry life skills. Every person deserves dignity and a real path forward.</p>
+  </div>
+  <div>
+    <h4>Financial Classes</h4>
+    <ul>
+      <li><a href="#classes" onclick="filterClasses('fin');return false">Budgeting Foundations</a></li>
+      <li><a href="#classes" onclick="filterClasses('fin');return false">Credit Repair</a></li>
+      <li><a href="#classes" onclick="filterClasses('fin');return false">Debt-Free Living</a></li>
+      <li><a href="#classes" onclick="filterClasses('fin');return false">Banking Basics</a></li>
+      <li><a href="#classes" onclick="filterClasses('fin');return false">Investing &amp; Home Ownership</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Reentry Classes</h4>
+    <ul>
+      <li><a href="#classes" onclick="filterClasses('ree');return false">Financial Jumpstart</a></li>
+      <li><a href="#classes" onclick="filterClasses('ree');return false">Employment Readiness</a></li>
+      <li><a href="#classes" onclick="filterClasses('ree');return false">Housing Navigation</a></li>
+      <li><a href="#classes" onclick="filterClasses('ree');return false">Legal Rights</a></li>
+      <li><a href="#classes" onclick="filterClasses('ree');return false">Peer Mentorship</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Organization</h4>
+    <ul>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#calendar">Class Schedule</a></li>
+      <li><a href="#contact">Register</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><a href="#contact">Volunteer / Donate</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 RiseUp Community. All rights reserved. A registered 501(c)(3) nonprofit.</span>
+  <span>Made with purpose for people who deserve better.</span>
+</div>
+<script>
+// ── UPCOMING EVENTS (5 fixed future dates from June 22 2026) ──
+const EVENTS = [
+  { date: new Date(2026,5,24), title:'Budgeting Foundations',       time:'6:00 PM EST', dur:'2 hrs', track:'fin', cls:'Budgeting Foundations' },
+  { date: new Date(2026,5,26), title:'Reentry Financial Jumpstart', time:'5:30 PM EST', dur:'3 hrs', track:'ree', cls:'Reentry Financial Jumpstart' },
+  { date: new Date(2026,6,1),  title:'Credit Repair & Building',    time:'7:00 PM EST', dur:'3 hrs', track:'fin', cls:'Credit Repair & Building' },
+  { date: new Date(2026,6,8),  title:'Employment Readiness',        time:'5:00 PM EST', dur:'4 hrs', track:'ree', cls:'Employment Readiness' },
+  { date: new Date(2026,6,10), title:'Debt-Free Living',            time:'6:30 PM EST', dur:'2.5 hrs', track:'fin', cls:'Debt-Free Living' },
+];
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+let curYear  = 2026;
+let curMonth = 5; // June = 5
+let selectedEvent = null;
+function eventDates() {
+  return EVENTS.map(e => `${e.date.getFullYear()}-${e.date.getMonth()}-${e.date.getDate()}`);
+}
+function renderCalendar() {
+  document.getElementById('calTitle').textContent = `${MONTHS[curMonth]} ${curYear}`;
+  const grid = document.getElementById('calGrid');
+  grid.innerHTML = '';
+  const today   = new Date(2026,5,22);
+  const first   = new Date(curYear, curMonth, 1);
+  const last    = new Date(curYear, curMonth+1, 0);
+  const startDay = first.getDay();
+  // prev month fill
+  const prevLast = new Date(curYear, curMonth, 0).getDate();
+  for(let i=startDay-1;i>=0;i--){
+    const d=document.createElement('div');
+    d.className='cal-day other-month';
+    d.textContent=prevLast-i;
+    grid.appendChild(d);
+  }
+  // current month
+  for(let day=1;day<=last.getDate();day++){
+    const d=document.createElement('div');
+    d.className='cal-day';
+    d.textContent=day;
+    const key=`${curYear}-${curMonth}-${day}`;
+    const isToday=(curYear===today.getFullYear()&&curMonth===today.getMonth()&&day===today.getDate());
+    if(isToday) d.classList.add('today');
+    const ev=EVENTS.find(e=>e.date.getFullYear()===curYear&&e.date.getMonth()===curMonth&&e.date.getDate()===day);
+    if(ev){
+      d.classList.add('has-class');
+      if(ev.track==='ree') d.classList.add('green-day');
+      d.title=ev.title;
+      d.addEventListener('click',()=>selectEvent(ev,d));
+    }
+    grid.appendChild(d);
+  }
+  // next month fill
+  const total=startDay+last.getDate();
+  const remaining=(7-total%7)%7;
+  for(let i=1;i<=remaining;i++){
+    const d=document.createElement('div');
+    d.className='cal-day other-month';
+    d.textContent=i;
+    grid.appendChild(d);
+  }
+}
+function changeMonth(dir){
+  curMonth+=dir;
+  if(curMonth>11){curMonth=0;curYear++}
+  if(curMonth<0){curMonth=11;curYear--}
+  renderCalendar();
+}
+function selectEvent(ev, calDayEl){
+  selectedEvent=ev;
+  // highlight calendar day
+  document.querySelectorAll('.cal-day.selected').forEach(d=>d.classList.remove('selected'));
+  if(calDayEl) calDayEl.classList.add('selected');
+  // highlight sidebar card
+  document.querySelectorAll('.event-card').forEach(c=>c.classList.remove('selected'));
+  const card=document.getElementById('ev-'+EVENTS.indexOf(ev));
+  if(card){card.classList.add('selected');card.scrollIntoView({behavior:'smooth',block:'nearest'})}
+}
+function renderEvents(){
+  const list=document.getElementById('eventList');
+  list.innerHTML='';
+  EVENTS.forEach((ev,i)=>{
+    const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const dateStr=`${days[ev.date.getDay()]}, ${months[ev.date.getMonth()]} ${ev.date.getDate()}, ${ev.date.getFullYear()}`;
+    const isGreen=ev.track==='ree';
+    const card=document.createElement('div');
+    card.className='event-card'+(isGreen?' green-ev':'');
+    card.id='ev-'+i;
+    card.innerHTML=`
+      <div class="ev-date">📅 ${dateStr}</div>
+      <div class="ev-title">${ev.title}</div>
+      <div class="ev-meta"><span>🕐 ${ev.time}</span><span>⏱ ${ev.dur}</span><span>💻 Live Online</span></div>
+      <button class="${isGreen?'ev-enroll green-e':'ev-enroll gold-e'}" onclick="enrollClass('${ev.cls}')">Register Free →</button>
+    `;
+    card.addEventListener('click',()=>{
+      // jump calendar to that month
+      curMonth=ev.date.getMonth(); curYear=ev.date.getFullYear();
+      renderCalendar();
+      // find the cal-day after render
+      setTimeout(()=>{
+        const allDays=[...document.querySelectorAll('.cal-day:not(.other-month)')];
+        const target=allDays.find(d=>parseInt(d.textContent)===ev.date.getDate());
+        selectEvent(ev,target);
+      },50);
+    });
+    list.appendChild(card);
+  });
+}
+// ── CLASS FILTER ──
+function filterClasses(type,btn){
+  if(btn){
+    document.querySelectorAll('.track-tab').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  document.querySelectorAll('.class-card').forEach(c=>{
+    c.classList.toggle('show', type==='all'||c.dataset.t===type);
+  });
+  // scroll to classes section if called from footer/reentry
+  if(!btn){
+    document.getElementById('classes').scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>{
+      document.querySelectorAll('.track-tab').forEach(t=>{
+        if((type==='fin'&&t.textContent.includes('Financial'))||(type==='ree'&&t.textContent.includes('Reentry'))){
+          t.classList.add('active');
+        } else { t.classList.remove('active'); }
+      });
+    },400);
+  }
+}
+// ── ENROLL → CONTACT FORM ──
+function enrollClass(name){
+  const sel=document.getElementById('classSelect');
+  if(sel){
+    for(let i=0;i<sel.options.length;i++){
+      if(sel.options[i].text===name||sel.options[i].text===name.replace(/&amp;/g,'&')){
+        sel.selectedIndex=i; break;
+      }
+    }
+  }
+  document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'});
+}
+// ── FORM SUBMIT ──
+function submitForm(){
+  const fname=document.getElementById('fname').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const cls=document.getElementById('classSelect').value;
+  if(!fname){alert('Please enter your first name.');return}
+  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return}
+  if(!cls){alert('Please select which class you want to attend.');return}
+  ['fname','lname','email','phone','msg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});
+  document.getElementById('classSelect').selectedIndex=0;
+  const t=document.getElementById('toast');
+  t.style.display='block';
+  setTimeout(()=>t.style.display='none',5000);
+}
+// ── SMOOTH NAV ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+// ── FADE IN ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+// ── INIT ──
+renderCalendar();
+renderEvents();
+</script>
+</body>
+</html>
